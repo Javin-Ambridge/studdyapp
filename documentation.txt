@@ -1,0 +1,11 @@
+Steps to run web application:
+
+1) node server.js
+2) Go to: http://localhost:3000/
+
+HOWEVER:
+Make sure the latest ember project has been compiled and placed into the public folder, to do this you need to run this command from inside the ember application folder:
+1) ember build --environment=production --output-path=../public/
+
+For mongoose query information look at:
+http://mongoosejs.com/docs/queries.html
