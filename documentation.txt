@@ -1,7 +1,11 @@
-Steps to run web application:
-
+Steps to run web application (running only the node server, with precompiled ember application):
 1) node server.js
 2) Go to: http://localhost:3000/
+
+Steps to run web application (both processes running, for developement):
+1) node server.js (inside the parent directory)
+2) ember server --proxy http://127.0.0.1:3000 (inside the ember project folder)
+3) Go to: http://localhost:4200/
 
 HOWEVER:
 Make sure the latest ember project has been compiled and placed into the public folder, to do this you need to run this command from inside the ember application folder:
