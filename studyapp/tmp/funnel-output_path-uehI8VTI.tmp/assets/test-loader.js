@@ -1,0 +1,1 @@
+/home/javin/Documents/study-app/studdyapp/studyapp/tmp/funnel-input_base_path-lUIbSa2r.tmp/0/bower_components/ember-cli-test-loader/test-loader.js

@@ -1,11 +1,25 @@
-Lets sign up right now! <br>
+<div class="signup-container">
+	<br><br>
+	<div class="signup-titles">
+		<span class="bold large">Join Now!</span><br>
+		Connect With Other Students in Your Classes Right Now!
+	</div>
 
-{{#if accountAlreadyCreated}}
-	An account has already been created for this. <br>
-{{/if}}
+	{{#if accountAlreadyCreated}}
+		An account has already been created for this. <br>
+	{{/if}}
 
-{{#power-select options=courses onchange=(action 'foo') placeholder="Please select a course." allowClear=true as |course|}}
-	{{course}}
-{{/power-select}}
+	<div class="signup-question">
+		What University do <span class="underline">you</span> go to?
+	</div>
+	{{#power-select options=universities onchange=(action 'chooseUniversity') placeholder="Please choose your university." allowClear=true selected=uni class="powerselect" as |uni|}}
+		{{uni.name}}
+	{{/power-select}}
+	<br><br>
+	{{#power-select options=courses onchange=(action 'foo') placeholder="Please select a course." allowClear=true class="powerselect" as |course|}}
+		{{course}}
+	{{/power-select}}
 
-<a {{action 'saveUser'}} class="test">Save</a>
+	<a {{action 'saveUser'}} class="test">Save</a>
+</div>
+
