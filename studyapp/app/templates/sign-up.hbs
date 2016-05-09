@@ -1,0 +1,11 @@
+Lets sign up right now! <br>
+
+{{#if accountAlreadyCreated}}
+	An account has already been created for this. <br>
+{{/if}}
+
+{{#power-select options=courses onchange=(action 'foo') placeholder="Please select a course." allowClear=true as |course|}}
+	{{course}}
+{{/power-select}}
+
+<a {{action 'saveUser'}} class="test">Save</a>
