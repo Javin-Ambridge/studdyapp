@@ -1,1 +1,0 @@
-/home/javin/Documents/study-app/studdyapp/studyapp/node_modules/ember-cli/lib/broccoli/testem.js

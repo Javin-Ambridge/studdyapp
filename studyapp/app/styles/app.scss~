@@ -1,4 +1,0 @@
-@import "ember-power-select";
-.test {
-	color: red;
-}

@@ -2,24 +2,42 @@
 	<br><br>
 	<div class="signup-titles">
 		<span class="bold large">Join Now!</span><br>
-		Connect With Other Students in Your Classes Right Now!
+		Connect With Other Students in Your Classes!
 	</div>
 
 	{{#if accountAlreadyCreated}}
 		An account has already been created for this. <br>
 	{{/if}}
-
+	<br>
 	<div class="signup-question">
 		What University do <span class="underline">you</span> go to?
 	</div>
-	{{#power-select options=universities onchange=(action 'chooseUniversity') placeholder="Please choose your university." allowClear=true selected=uni class="powerselect" as |uni|}}
+	{{#power-select options=universities onchange=(action 'chooseUniversity') placeholder="Please choose your university." allowClear=true selected=uni class="powerselect" searchField="name" as |uni|}}
 		{{uni.name}}
 	{{/power-select}}
 	<br><br>
-	{{#power-select options=courses onchange=(action 'foo') placeholder="Please select a course." allowClear=true class="powerselect" as |course|}}
-		{{course}}
+	<div class="signup-question">
+		What Courses are <span class="underline">you</span> currently taking?
+	</div>
+	{{#power-select options=courses onchange=(action 'addCourse') placeholder="Please select a course." allowClear=true class="powerselect" as |course|}}
+		{{course.name}} - ({{course.id}})
 	{{/power-select}}
 
+	{{#if anyCourses}}
+		<div class="courses-container">
+			<div class="text-center padding-top">
+				<span class="bold">Courses Selected:</span>
+			</div>
+			<div class="course-list">
+				{{#each selectedCourses as |course index|}}
+					{{fa-icon "graduation-cap"}} {{course.name}} - ({{course.id}}) <span class="span-float-right"><a {{action 'removeCourse' index}}>{{fa-icon "minus-circle"}}</a></span><br>
+				{{/each}}
+			</div>
+		</div>
+	{{/if}}
+
+	<a><div class="button">Go Back</div></a>
+	<a><div class="button">Continue</div></a>
+	<br>
 	<a {{action 'saveUser'}} class="test">Save</a>
 </div>
-

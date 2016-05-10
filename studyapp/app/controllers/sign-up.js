@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	alreadySignedUp: false,
 	uni: null,
+	selectedCourses: [],
 	universities: 
 	[
 		{
@@ -12,10 +13,32 @@ export default Ember.Controller.extend({
 			name: 'Wilfred Laurier'
 		}
 	],
-	courses: ['course1', 'course2', 'course3'],
+	courses: 
+	[
+		{
+			name: 'Combinatorics',
+			id: 'Math239'
+		},
+		{
+			name: 'Data Structures and Data Managment',
+			id: 'CS240'
+		},
+		{
+			name: 'Foundations of Sequential Programs',
+			id: 'CS241'
+		},
+		{
+			name: 'Computer Organization and Design',
+			id: 'CS251'
+		}
+	],
 
 	accountAlreadyCreated: Ember.computed('alreadySignedUp', function() {
 		return this.get('alreadySignedUp');
+	}),
+
+	anyCourses: Ember.computed('selectedCourses.[]', function() {
+		return this.get('selectedCourses').length > 0;
 	}),
 
 	actions: {
@@ -25,16 +48,21 @@ export default Ember.Controller.extend({
 				email: 'javin.ambridge@gmail.com',
 				password: 'password',
 				admin: true,
-				postal_code: 'N2L5L6',
-				university: 'University of Waterloo'
+				university: 'University of Waterloo',
+				courses: ['Math239', 'CS241', 'CS240', 'CS251']
 			});
 			var self = this;
 			user.save().then(function(values) {
 				self.set('alreadySignedUp', Ember.get(values, 'alreadySignedUp'));
 			});
 		},
-		foo() {
-			console.log("selected!");
+		addCourse(course) {
+			var curr = this.get('selectedCourses');
+			curr.addObject(course);
+			this.set('selectedCourses', curr);
+		},
+		removeCourse(index) {
+			this.get('selectedCourses').removeAt(index);
 		},
 		chooseUniversity(uni) {
 			this.set('uni', uni);

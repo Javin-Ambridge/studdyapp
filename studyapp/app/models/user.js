@@ -5,5 +5,7 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   password: DS.attr('string'),
   admin: DS.attr('boolean'),
-  alreadySignedUp: DS.attr('boolean')
+  alreadySignedUp: DS.attr('boolean'),
+  university: DS.attr('string'),
+  courses: DS.attr()
 });
