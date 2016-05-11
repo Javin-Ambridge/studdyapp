@@ -7,6 +7,13 @@ export default Ember.Controller.extend({
 	currentStep: 1,
 	uniError: false,
 	courseError: false,
+	name: null,
+	email: null,
+	password: null,
+	displayPassword: false,
+	nameError: false,
+	passwordError: false,
+	emailError: false,
 	universities: 
 	[
 		{
@@ -79,15 +86,65 @@ export default Ember.Controller.extend({
 		nextStep() {
 			if (this.get('currentStep') === 1) {
 				var canContinue = true;
-				if (!this.get('anyCourses'))
+				if (this.get('selectedCourses').length == 0) {
 					canContinue = false;
 					this.set('courseError', true);
-				if (this.get('uni') === null)
+				}
+				if (this.get('uni') === null) {
 					canContinue = false;
 					this.set('uniError', true);
+				}
 				if (canContinue) 
 					this.set('currentStep', 2);
+			} else if (this.get('currentStep') === 2) {
+				var properName = false;
+				var properEmail = false;
+				var properPassword = false;
+
+				if (this.get('name').replace(/.+\s.+/g, "").length != this.get('name').length)
+					properName = true;
+				if (this.get('email').replace(/.+@.+\..+/g, "").length != this.get('email').length)
+					properEmail = true;
+				if (this.get('password').length > 0)
+					properPassword = true;
+
+				if (properPassword && properEmail && properName) {
+					var arr = [];
+					for (var i = 0; i < this.get('selectedCourses').length; i++) {
+						arr.push(this.get('selectedCourses')[i].id);
+					}
+					var user = this.store.createRecord('user', {
+						name: this.get('name'),
+						email: this.get('email'),
+						password: this.get('password'),
+						admin: false,
+						university: this.get('uni').name,
+						courses: arr
+					});
+					var self = this;
+					user.save().then(function(values) {
+						self.set('alreadySignedUp', Ember.get(values, 'alreadySignedUp'));
+						if (self.get('alreadySignedUp')) {
+							Ember.run.later((function() {
+								self.set('alreadySignedUp', false);
+							}), 2000);
+						}
+					});
+				} else {
+					if (!properName)
+						this.set('nameError', true);
+					if (!properEmail)
+						this.set('emailError', true);
+					if (!properPassword)
+						this.set('passwordError', true);
+				}
 			}
+		},
+		prevStep() {
+			this.set('currentStep', this.get('currentStep') - 1);
+		},
+		togglePassword() {
+			this.set('displayPassword', !this.get('displayPassword'));
 		}
 	}
 });

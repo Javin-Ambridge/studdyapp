@@ -14,7 +14,6 @@ module.exports.getAllUsers = function(req, res) {
 module.exports.addUser = function(req,res) {  
     var newUser = new User(req.body.user);
     User.findOne({
-        name: newUser.name,
         email: newUser.email
     }).then(function(results) {
         if (results === null) {

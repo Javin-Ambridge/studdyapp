@@ -321,6 +321,32 @@
   .button.gold {
     background-color: #FF9800; }
 
+.inputbox {
+  width: 50%;
+  font-size: 25px;
+  height: 25px; }
+
+.display-password-container {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  color: white;
+  font-weight: bold; }
+  .display-password-container .text {
+    position: relative;
+    top: -6px;
+    padding-left: 5px; }
+
+.already-signedup {
+  text-align: center;
+  background-color: #F5F545;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: -10px;
+  margin-right: -8px;
+  font-weight: bold; }
+
 .powerselect {
   width: 50%;
   margin-left: auto;
