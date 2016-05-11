@@ -4,6 +4,9 @@ export default Ember.Controller.extend({
 	alreadySignedUp: false,
 	uni: null,
 	selectedCourses: [],
+	currentStep: 1,
+	uniError: false,
+	courseError: false,
 	universities: 
 	[
 		{
@@ -38,7 +41,11 @@ export default Ember.Controller.extend({
 	}),
 
 	anyCourses: Ember.computed('selectedCourses.[]', function() {
-		return this.get('selectedCourses').length > 0;
+		var any = this.get('selectedCourses').length > 0;
+		if (any && this.get('courseError')) {
+			this.set('courseError', false);
+		}
+		return any;
 	}),
 
 	actions: {
@@ -65,7 +72,22 @@ export default Ember.Controller.extend({
 			this.get('selectedCourses').removeAt(index);
 		},
 		chooseUniversity(uni) {
+			if (this.get('uniError'))
+				this.set('uniError', false);
 			this.set('uni', uni);
+		},
+		nextStep() {
+			if (this.get('currentStep') === 1) {
+				var canContinue = true;
+				if (!this.get('anyCourses'))
+					canContinue = false;
+					this.set('courseError', true);
+				if (this.get('uni') === null)
+					canContinue = false;
+					this.set('uniError', true);
+				if (canContinue) 
+					this.set('currentStep', 2);
+			}
 		}
 	}
 });

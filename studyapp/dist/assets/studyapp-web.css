@@ -255,7 +255,8 @@
 
 .signup-container {
   width: 100%;
-  height: 587px;
+  min-height: 587px;
+  height: inherit;
   background-color: #F44336;
   margin-left: -8px;
   padding-right: 16px; }
@@ -288,9 +289,37 @@
       line-height: 1.5;
       padding-bottom: 10px; }
 
+.signup-buttons {
+  text-align: center;
+  padding-top: 80px; }
+
+.error {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+  background-color: white;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  border-radius: 15px; }
+
 .button {
-  width: 200px;
-  background-color: red; }
+  text-decoration: none;
+  padding: 10px 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: white;
+  text-shadow: 1px 1px #171717;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+  font-weight: bold;
+  box-shadow: 3px 3px 5px #615D5D; }
+  .button.black {
+    background-color: #212121; }
+  .button.gold {
+    background-color: #FF9800; }
 
 .powerselect {
   width: 50%;

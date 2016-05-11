@@ -13,7 +13,7 @@ define('studyapp-web/tests/controllers/sign-up.jshint', ['exports'], function (e
   QUnit.module('JSHint - controllers/sign-up.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/sign-up.js should pass jshint.\ncontrollers/sign-up.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/sign-up.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/sign-up.js: line 45, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/sign-up.js: line 59, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/sign-up.js: line 64, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/sign-up.js: line 67, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n6 errors');
+    assert.ok(false, 'controllers/sign-up.js should pass jshint.\ncontrollers/sign-up.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/sign-up.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/sign-up.js: line 52, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/sign-up.js: line 66, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/sign-up.js: line 71, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/sign-up.js: line 74, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/sign-up.js: line 79, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n7 errors');
   });
 });
 define('studyapp-web/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
@@ -262,6 +262,15 @@ define('studyapp-web/tests/helpers/ember-power-select', ['exports', 'ember'], fu
     });
   };
 });
+define('studyapp-web/tests/helpers/int-equal.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - helpers/int-equal.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'helpers/int-equal.js should pass jshint.\nhelpers/int-equal.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nhelpers/int-equal.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nhelpers/int-equal.js: line 9, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n3 errors');
+  });
+});
 define('studyapp-web/tests/helpers/module-for-acceptance', ['exports', 'qunit', 'studyapp-web/tests/helpers/start-app', 'studyapp-web/tests/helpers/destroy-app'], function (exports, _qunit, _studyappWebTestsHelpersStartApp, _studyappWebTestsHelpersDestroyApp) {
   exports['default'] = function (name) {
     var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
@@ -428,6 +437,25 @@ define('studyapp-web/tests/unit/controllers/sign-up-test.jshint', ['exports'], f
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/controllers/sign-up-test.js should pass jshint.');
+  });
+});
+define('studyapp-web/tests/unit/helpers/int-equal-test', ['exports', 'studyapp-web/helpers/int-equal', 'qunit'], function (exports, _studyappWebHelpersIntEqual, _qunit) {
+
+  (0, _qunit.module)('Unit | Helper | int equal');
+
+  // Replace this with your real tests.
+  (0, _qunit.test)('it works', function (assert) {
+    var result = (0, _studyappWebHelpersIntEqual.intEqual)(42);
+    assert.ok(result);
+  });
+});
+define('studyapp-web/tests/unit/helpers/int-equal-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/helpers/int-equal-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/helpers/int-equal-test.js should pass jshint.');
   });
 });
 define('studyapp-web/tests/unit/models/quote-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
