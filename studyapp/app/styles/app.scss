@@ -28,6 +28,19 @@
 	text-decoration: underline;
 }
 
+.signup-titles {
+  color: white;
+  text-shadow: 1px 2px #171717;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 20px;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+
+  &.bold {
+    font-weight: bold;
+  }
+}
+
 .signup-container {
 	width: 100%;    
 	min-height: 587px;
@@ -36,14 +49,6 @@
 	margin-left: -8px;
 	padding-right: 16px;
 
-	.signup-titles {
-		color: white;
-    text-shadow: 1px 2px #171717;
-    text-align: center;
-    font-size: 30px;
-    padding-bottom: 20px;
-    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
-	}
 	.signup-question {
 		text-align: center;
     font-size: 25px;
@@ -144,4 +149,11 @@
 	width: 50%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.login-container {
+  width: 100%;
+  min-height: 587px;
+  height: inherit;
+  background-color: #FF9800;
 }
