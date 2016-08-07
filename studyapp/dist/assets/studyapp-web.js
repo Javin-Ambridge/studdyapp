@@ -1755,7 +1755,7 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+6a2c64ee"});
+  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+e6af9f23"});
 }
 
 /* jshint ignore:end */
