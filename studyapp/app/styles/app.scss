@@ -19,6 +19,53 @@
   text-decoration: none;
 }
 
+.box-container {
+  margin-top: 50px;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.loadmore-button-container {
+  float: left;
+  width: 100%;
+  margin-top: 40px;
+  text-align: center;
+
+  .load-button {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #9ABEF7;
+    height: 55px;
+    line-height: 2;
+    border-radius: 25px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'capriola', sans-serif;
+
+    .increase-font-size {
+      font-size: 25px;
+      line-height: 1;
+    }
+  }
+}
+
+.medium {
+  width: 47.5%;
+  float: left;
+  height: 350px;
+  margin-top: 20px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  &.marginL {
+    margin-left: 5%;
+  }
+}
+
 .fiftyPerc {
   width: 50%;
   &.left {
@@ -44,6 +91,10 @@
   margin-top: 15px;
   text-decoration: underline;
   font-family: 'capriola', sans-serif;
+
+  &.dashboard {
+    margin-right: -80px;
+  }
 }
 
 .learn-more:hover {
@@ -356,6 +407,140 @@
   background-color: #FF9800;
 }
 
+
+
+.Hero-container{  
+  position: relative;
+  margin-left: 0px;
+  margin-right: 0px;
+  font-family: gabriola, sans-serif;
+  .HeroImage img{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .HeroImage h2 {
+    position: absolute;
+    top: 20%;
+    padding-left: 10%;
+    text-align: center;
+    font-size: 350%;
+    
+    color: white;
+    text-shadow: -1px 0 green, 0 1px green, 1px 0 green, 0 -1px green;  
+  }
+}
+
+.JoinConnectSucceed {
+font-family: gabriola, sans-serif;
+  text-alrign: center;
+  padding-top: 3%;
+  .join{
+    width: 33%;
+    float: left;
+    text-align: center;
+    font-size: 30px;
+    margin-left: 5%;
+  }
+  
+  .succeed {
+    width: 33%;
+    float: right;
+    text-align: center;
+    font-size: 30px;
+    margin-right: 5%;
+  }
+
+  .connect {
+    width: 23%;
+    display: inline-block;
+    text-align: center;
+    font-size: 30px;
+  }
+.list {
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 auto;
+  width: 40%;
+  min-width: 175px;
+  padding-left: 7%;
+}
+.listConnect {
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 auto;
+  width: 65%;
+  min-width: 175px;
+  padding-left: 0;
+  padding-top: 2%;
+  text-align: left;
+}
+.list li {
+  padding-top: 4%;
+  text-align: left;
+}
+
+}
+
+.circleimage {
+  width: 300px;
+  max-width: 300px;
+  height: 300px;
+  margin: auto;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+
+  background: url(/images/hands-in.jpg) no-repeat;
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-position: center;
+  background-position: 0px;
+  border: 3px solid black;
+  margin-bottom: 2%;
+
+}
+
+.connectimage {
+  background: url(/images/connect.jpg) no-repeat;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  position: relative;
+  margin-bottom: 1%;
+
+ 
+  -moz-background-size: 150% 100%;
+  -webkit-background-size: 150% 100%;
+  background-size: 150% 100%;
+  background-position: center;
+  border: 3px solid black;
+}
+
+.succeedimage {
+  width: 300px;
+  max-width: 300px;
+  height: 300px;
+  margin: auto;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  margin-bottom: 2%;
+  background: url(/images/aplusgrade.jpg) no-repeat;
+  -moz-background-size: 150% 100%;
+  -webkit-background-size: 150% 100%;
+  background-size: 150% 100%;
+  background-position: center;
+  border: 3px solid black;
+}
+html, body { margin: 0; padding: 0; } 
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -450,3 +635,4 @@
       background-color: red;
     }
 }
+
