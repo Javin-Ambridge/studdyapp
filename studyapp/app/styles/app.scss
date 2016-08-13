@@ -278,10 +278,15 @@
 
 .Hero-container{  
   position: relative;
-
+  margin-left: 0px;
+  margin-right: 0px;
+  
   .HeroImage img{
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .HeroImage h2 {
@@ -298,6 +303,7 @@
 
 .JoinConnectSucceed {
   text-alrign: center;
+  padding-top: 3%;
   .join{
     width: 33%;
     float: left;
@@ -323,12 +329,12 @@
   display: inline-block;
   vertical-align: top;
   margin: 0 auto;
-  width: 75%;
-  padding-left: 20%;
+  width: 40%;
+  padding-left: 10%;
 }
 .list li {
-padding-top: 3%;
-
+  padding-top: 3%;
+  
   text-align: left;
 }
 
@@ -339,29 +345,29 @@ padding-top: 3%;
   max-width: 300px;
   height: 300px;
   margin: auto;
-  border-radius: 150px;
-  -webkit-border-radius: 150px;
-  -moz-border-radius: 150px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 
-  background: url(/images/girl-laptop-sofa.jpg) no-repeat;
+  background: url(/images/hands-in.jpg) no-repeat;
   -moz-background-size: 100% 100%;
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
   background-position: center;
+  background-position: 0px;
   border: 3px solid black;
 
 }
 
 .connectimage {
+  background: url(/images/connect.jpg) no-repeat;
   width: 300px;
-  max-width: 300px;
   height: 300px;
   margin: auto;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+  position: relative;
+  
 
-  background: url(/images/connect.jpg) no-repeat;
+ 
   -moz-background-size: 150% 100%;
   -webkit-background-size: 150% 100%;
   background-size: 150% 100%;
@@ -385,3 +391,4 @@ padding-top: 3%;
   background-position: center;
   border: 3px solid black;
 }
+html, body { margin: 0; padding: 0; } 
