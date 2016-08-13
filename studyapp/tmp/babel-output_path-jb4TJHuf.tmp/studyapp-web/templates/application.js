@@ -279,6 +279,47 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
         templates: []
       };
     })();
+    var child4 = (function () {
+      return {
+        meta: {
+          "revision": "Ember@1.13.12",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 19,
+              "column": 1
+            },
+            "end": {
+              "line": 21,
+              "column": 1
+            }
+          },
+          "moduleName": "studyapp-web/templates/application.hbs"
+        },
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("		");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "learn-more dashboard");
+          var el2 = dom.createTextNode("Dashboard");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() {
+          return [];
+        },
+        statements: [],
+        locals: [],
+        templates: []
+      };
+    })();
     return {
       meta: {
         "revision": "Ember@1.13.12",
@@ -289,7 +330,7 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 22,
+            "line": 24,
             "column": 0
           }
         },
@@ -339,9 +380,9 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
         morphs[3] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         return morphs;
       },
-      statements: [["block", "link-to", ["landing"], ["class", "no-underline"], 0, null, ["loc", [null, [2, 1], [2, 147]]]], ["block", "if", [["get", "session.isAuthenticated", ["loc", [null, [4, 8], [4, 31]]]]], [], 1, 2, ["loc", [null, [4, 2], [15, 9]]]], ["block", "unless", [["get", "session.isAuthenticated", ["loc", [null, [17, 11], [17, 34]]]]], [], 3, null, ["loc", [null, [17, 1], [19, 12]]]], ["content", "outlet", ["loc", [null, [21, 0], [21, 10]]]]],
+      statements: [["block", "link-to", ["landing"], ["class", "no-underline"], 0, null, ["loc", [null, [2, 1], [2, 147]]]], ["block", "if", [["get", "session.isAuthenticated", ["loc", [null, [4, 8], [4, 31]]]]], [], 1, 2, ["loc", [null, [4, 2], [15, 9]]]], ["block", "unless", [["get", "session.isAuthenticated", ["loc", [null, [17, 11], [17, 34]]]]], [], 3, 4, ["loc", [null, [17, 1], [21, 12]]]], ["content", "outlet", ["loc", [null, [23, 0], [23, 10]]]]],
       locals: [],
-      templates: [child0, child1, child2, child3]
+      templates: [child0, child1, child2, child3, child4]
     };
   })());
 });
