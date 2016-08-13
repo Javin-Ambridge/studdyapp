@@ -2813,7 +2813,7 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+fee41612"});
+  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+2eaa5940"});
 }
 
 /* jshint ignore:end */
