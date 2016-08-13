@@ -1,1 +1,32 @@
 LANDING PAGE!
+<div>
+	<div>
+		Connect With Other Students in Your Classes!
+	</div>
+	<br>	
+<div>
+
+<div class="search-box-container">
+	<button class="go-buttons"{{action "submitUni"}}>Go</button>
+	{{#power-select 
+		options=universities
+		onchange=(action 'chooseUniversity') 
+		placeholder="Please choose your university." 
+		allowClear=true 
+		selected=uni 
+		class="powerselect" 
+		searchField="name" as |uni|}}
+		{{uni.name}}
+		{{/power-select}}
+</div>
+	
+</div>
+	{{#if uniError}}
+		<div class="error">
+			Please choose a university to continue.
+		</div>
+	{{/if}}
+	
+	<br><br>	
+</div>
+

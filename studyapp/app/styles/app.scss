@@ -1,4 +1,5 @@
-@import "ember-power-select";
+@import 'ember-power-select/themes/bootstrap';
+@import 'ember-power-select';
 	
 .bold {
 	font-weight: bold;
@@ -81,6 +82,25 @@
   padding-top: 80px;
 }
 
+.go-buttons {   
+ font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  float: right;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.footer-container {
+  color: red;
+}
+
+.search-box-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+}
+
 .error {
   text-align: center;
   color: red;
@@ -146,9 +166,7 @@
 }
 
 .powerselect {
-	width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+	width: 92%;
 }
 
 .login-container {
