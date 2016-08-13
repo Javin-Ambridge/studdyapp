@@ -420,7 +420,7 @@
   .HeroImage h2 {
     position: absolute;
     top: 20%;
-    padding-left: 15%;
+    padding-left: 10%;
     text-align: center;
     font-size: 350%;
     
@@ -438,6 +438,7 @@ font-family: gabriola, sans-serif;
     float: left;
     text-align: center;
     font-size: 30px;
+    margin-left: 5%;
   }
   
   .succeed {
@@ -445,10 +446,11 @@ font-family: gabriola, sans-serif;
     float: right;
     text-align: center;
     font-size: 30px;
+    margin-right: 5%;
   }
 
   .connect {
-    width: 33%;
+    width: 23%;
     display: inline-block;
     text-align: center;
     font-size: 30px;
@@ -467,15 +469,14 @@ font-family: gabriola, sans-serif;
   display: inline-block;
   vertical-align: top;
   margin: 0 auto;
-  width: 40%;
+  width: 65%;
   min-width: 175px;
-  padding-left: 4%;
+  padding-left: 0;
   padding-top: 2%;
   text-align: left;
 }
 .list li {
   padding-top: 4%;
-  
   text-align: left;
 }
 

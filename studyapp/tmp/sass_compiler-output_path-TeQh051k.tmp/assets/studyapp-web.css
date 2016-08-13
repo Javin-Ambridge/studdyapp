@@ -581,7 +581,7 @@
   .Hero-container .HeroImage h2 {
     position: absolute;
     top: 20%;
-    padding-left: 15%;
+    padding-left: 10%;
     text-align: center;
     font-size: 350%;
     color: white;
@@ -595,14 +595,16 @@
     width: 33%;
     float: left;
     text-align: center;
-    font-size: 30px; }
+    font-size: 30px;
+    margin-left: 5%; }
   .JoinConnectSucceed .succeed {
     width: 33%;
     float: right;
     text-align: center;
-    font-size: 30px; }
+    font-size: 30px;
+    margin-right: 5%; }
   .JoinConnectSucceed .connect {
-    width: 33%;
+    width: 23%;
     display: inline-block;
     text-align: center;
     font-size: 30px; }
@@ -619,9 +621,9 @@
     display: inline-block;
     vertical-align: top;
     margin: 0 auto;
-    width: 40%;
+    width: 65%;
     min-width: 175px;
-    padding-left: 4%;
+    padding-left: 0;
     padding-top: 2%;
     text-align: left; }
   .JoinConnectSucceed .list li {

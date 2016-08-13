@@ -1271,7 +1271,7 @@ define("studyapp-web/templates/landing", ["exports"], function (exports) {
         var el6 = dom.createTextNode("Join one of the ");
         dom.appendChild(el5, el6);
         var el6 = dom.createElement("span");
-        dom.setAttribute(el6, "class", "underline");
+        dom.setAttribute(el6, "class", "bold");
         var el7 = dom.createTextNode("fastest");
         dom.appendChild(el6, el7);
         dom.appendChild(el5, el6);
@@ -1360,7 +1360,7 @@ define("studyapp-web/templates/landing", ["exports"], function (exports) {
         var el6 = dom.createTextNode("Work the way ");
         dom.appendChild(el5, el6);
         var el6 = dom.createElement("span");
-        dom.setAttribute(el6, "class", "underline");
+        dom.setAttribute(el6, "class", "bold");
         var el7 = dom.createTextNode("you");
         dom.appendChild(el6, el7);
         dom.appendChild(el5, el6);
