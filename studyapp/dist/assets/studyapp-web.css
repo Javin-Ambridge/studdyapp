@@ -414,7 +414,7 @@
   .signup-container .signup-background1 {
     width: 100%;
     min-height: 587px;
-    height: inherit;
+    height: 100%;
     position: fixed;
     background-image: url("images/people-office-group-team.jpg");
     background-repeat: no-repeat;
@@ -425,7 +425,7 @@
     width: 100%;
     min-height: 587px;
     position: fixed;
-    height: inherit;
+    height: 100%;
     background-image: url("images/books.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -434,10 +434,13 @@
     padding-right: 16px; }
   .signup-container .background {
     opacity: 0.75;
-    width: 70%;
-    height: 50%;
+    width: 900px;
+    height: 600px;
     position: relative;
-    margin-top: 50px;
+    border-width: 2px;
+    border-style: solid;
+    margin-top: 3vh;
+    /* margin-bottom: auto; */
     margin-right: auto;
     margin-left: auto;
     padding-bottom: 20px;
@@ -459,7 +462,9 @@
     .signup-container .courses-container .course-list {
       border-style: solid;
       padding-left: 30px;
-      line-height: 1.5;
+      line-height: 2.5;
+      max-height: 125px;
+      overflow-y: scroll;
       padding-bottom: 10px; }
 
 .signup-buttons {
@@ -751,16 +756,30 @@ html, body {
   padding: 4px 16px;
   background-color: #5cb85c;
   color: white; }
+  .modal-header.error-red {
+    background-color: red; }
 
 .modal-body {
   padding: 2px 16px;
   text-align: center;
   font-size: 31px;
-  font-family: 'galada', sans-serif; }
+  font-family: 'capriola', sans-serif; }
+  .modal-body .modal-login-button {
+    background-color: #36DA36;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    font-weight: bold; }
 
 .modal-footer {
   padding: 4px 16px;
   background-color: #5cb85c;
   color: white; }
+  .modal-footer.error-red {
+    background-color: red; }
 
 /*# sourceMappingURL=studyapp-web.css.map */
