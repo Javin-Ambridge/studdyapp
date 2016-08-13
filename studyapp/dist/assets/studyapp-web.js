@@ -128,6 +128,9 @@ define('studyapp-web/components/power-select', ['exports', 'ember-power-select/c
 define('studyapp-web/controllers/array', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
 });
+define('studyapp-web/controllers/landing', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Controller.extend({});
+});
 define('studyapp-web/controllers/login', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].Controller.extend({
 		email: null,
@@ -546,12 +549,16 @@ define('studyapp-web/router', ['exports', 'ember', 'studyapp-web/config/environm
   });
 
   Router.map(function () {
+    this.route('landing', { path: '/' });
     this.route('quote');
     this.route('sign-up');
     this.route('login');
   });
 
   exports['default'] = Router;
+});
+define('studyapp-web/routes/landing', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Route.extend({});
 });
 define('studyapp-web/routes/login', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({});
@@ -617,6 +624,42 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
         return morphs;
       },
       statements: [["content", "outlet", ["loc", [null, [3, 0], [3, 10]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define("studyapp-web/templates/landing", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "revision": "Ember@1.13.12",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 13
+          }
+        },
+        "moduleName": "studyapp-web/templates/landing.hbs"
+      },
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("LANDING PAGE!");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes() {
+        return [];
+      },
+      statements: [],
       locals: [],
       templates: []
     };
@@ -1755,7 +1798,7 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+ef42ac64"});
+  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+8df8ae50"});
 }
 
 /* jshint ignore:end */
