@@ -213,7 +213,7 @@
 .signup-container {
 	width: 100%;    
 	min-height: 587px;
-	height: inherit;
+	height: 100%;
 	margin-left: -8px;
 	padding-right: 16px;
 
@@ -254,7 +254,7 @@
   .background{
     opacity: 0.75;
     width: 70%;
-    height: 50%;
+    height: 70%;
     position: relative;
     margin-top: 50px;
     margin-right: auto;
@@ -289,7 +289,7 @@
 
 .signup-buttons {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .error {
