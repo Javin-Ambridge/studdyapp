@@ -1500,7 +1500,7 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 82,
+            "line": 84,
             "column": 0
           }
         },
@@ -1524,32 +1524,48 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
         dom.setAttribute(el2, "class", "login-container");
-        var el3 = dom.createTextNode("\n		");
+        var el3 = dom.createTextNode("\n		\n		");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "login-title bold");
-        var el4 = dom.createTextNode("\n			Login LOGO here\n		");
+        dom.setAttribute(el3, "class", "login-title galada");
+        var el4 = dom.createTextNode("\n			WeStudy\n		");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n		\n		");
         dom.appendChild(el2, el3);
-        var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "login-buttons");
-        var el4 = dom.createTextNode("\n			");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("a");
-        dom.setAttribute(el4, "class", "login-buttons bluefb");
-        var el5 = dom.createTextNode("Log In with Facebook");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n		");
-        dom.appendChild(el3, el4);
+        var el3 = dom.createElement("hr");
+        dom.setAttribute(el3, "class", "login-lineDividers");
+        dom.setAttribute(el3, "size", "10px");
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n\n		");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "style", "padding-top:15px;padding-left:30px;padding-right:30px;text-align:left;font-weight:bold;font-size:20px;font-family:cursive,Comic Sans MS,Helvetica Neue,Helvetica,sans-serif");
+        var el4 = dom.createTextNode("\n			\"Let's start studying you degenerates\"\n		");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n		");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "style", "padding-top:15px;padding-left:30px;padding-right:30px;text-align:right;font-weight:bold;font-size:20px;font-family:cursive,Comic Sans MS,Helvetica Neue,Helvetica,sans-serif");
+        var el4 = dom.createTextNode("\n			-Feridun\n		");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n		");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("hr");
+        dom.setAttribute(el3, "class", "login-lineDividers");
+        dom.setAttribute(el3, "size", "10px");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("\n		<div class=\"login-buttons\">\n			<a class=\"login-buttons bluefb\">Log In with Facebook</a>\n		</div>\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n		");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
         dom.setAttribute(el3, "class", "login-fields-desc bold");
-        var el4 = dom.createTextNode("\n			Email\n		");
+        var el4 = dom.createTextNode("\n			Email Address\n		");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n		\n		");
@@ -1633,25 +1649,13 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
         var el4 = dom.createTextNode("\n		");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n		\n		");
+        var el3 = dom.createTextNode("\n");
         dom.appendChild(el2, el3);
-        var el3 = dom.createElement("hr");
+        var el3 = dom.createElement("br");
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n		");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "style", "padding-top:15px;padding-left:10px;text-align:left;font-weight:bold;font-size:20px;font-family:cursive,Comic Sans MS,Helvetica Neue,Helvetica,sans-serif");
-        var el4 = dom.createTextNode("\n			\"Let's start studying you degenerates\"\n		");
-        dom.appendChild(el3, el4);
+        var el3 = dom.createElement("br");
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n		");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "style", "padding-top:15px;padding-left:10px;text-align:right;font-weight:bold;font-size:20px;font-family:cursive,Comic Sans MS,Helvetica Neue,Helvetica,sans-serif");
-        var el4 = dom.createTextNode("\n			-Feridun\n		");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n		");
         dom.appendChild(el2, el3);
         var el3 = dom.createComment(" The frontend Modal ");
         dom.appendChild(el2, el3);
@@ -1659,7 +1663,7 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "id", "loginFailurePrelim");
-        dom.setAttribute(el3, "class", "modal");
+        dom.setAttribute(el3, "class", "login-modal");
         var el4 = dom.createTextNode("\n\n		  ");
         dom.appendChild(el3, el4);
         var el4 = dom.createComment(" Modal content ");
@@ -1667,7 +1671,7 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
         var el4 = dom.createTextNode("\n		  ");
         dom.appendChild(el3, el4);
         var el4 = dom.createElement("div");
-        dom.setAttribute(el4, "class", "modal-content");
+        dom.setAttribute(el4, "class", "login-modal-content");
         var el5 = dom.createTextNode("\n		    ");
         dom.appendChild(el4, el5);
         var el5 = dom.createElement("span");
@@ -1695,7 +1699,7 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "id", "loginFailureBack");
-        dom.setAttribute(el3, "class", "modal");
+        dom.setAttribute(el3, "class", "login-modal");
         var el4 = dom.createTextNode("\n\n		  ");
         dom.appendChild(el3, el4);
         var el4 = dom.createComment(" Modal content ");
@@ -1703,7 +1707,7 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
         var el4 = dom.createTextNode("\n		  ");
         dom.appendChild(el3, el4);
         var el4 = dom.createElement("div");
-        dom.setAttribute(el4, "class", "modal-content");
+        dom.setAttribute(el4, "class", "login-modal-content");
         var el5 = dom.createTextNode("\n		    ");
         dom.appendChild(el4, el5);
         var el5 = dom.createElement("span");
@@ -1735,16 +1739,16 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [0, 3]);
-        var element1 = dom.childAt(element0, [17, 1]);
-        var element2 = dom.childAt(element0, [21, 1]);
+        var element1 = dom.childAt(element0, [25, 1]);
+        var element2 = dom.childAt(element0, [29, 1]);
         var morphs = new Array(4);
-        morphs[0] = dom.createMorphAt(dom.childAt(element0, [7]), 1, 1);
-        morphs[1] = dom.createMorphAt(dom.childAt(element0, [11]), 1, 1);
+        morphs[0] = dom.createMorphAt(dom.childAt(element0, [15]), 1, 1);
+        morphs[1] = dom.createMorphAt(dom.childAt(element0, [19]), 1, 1);
         morphs[2] = dom.createElementMorph(element1);
         morphs[3] = dom.createElementMorph(element2);
         return morphs;
       },
-      statements: [["inline", "input", [], ["type", "text", "placeholder", "Email", "value", ["subexpr", "@mut", [["get", "email", ["loc", [null, [18, 49], [18, 54]]]]], [], []], "class", "inputbox", "maxlength", "85"], ["loc", [null, [18, 3], [18, 88]]]], ["inline", "input", [], ["type", "text", "placeholder", "Password", "value", ["subexpr", "@mut", [["get", "password", ["loc", [null, [26, 52], [26, 60]]]]], [], []], "type", "password", "class", "inputbox", "maxlength", "85"], ["loc", [null, [26, 3], [26, 110]]]], ["element", "action", ["login"], [], ["loc", [null, [37, 34], [37, 52]]]], ["element", "action", ["signup"], [], ["loc", [null, [43, 32], [43, 51]]]]],
+      statements: [["inline", "input", [], ["type", "text", "placeholder", "Email Address", "value", ["subexpr", "@mut", [["get", "email", ["loc", [null, [29, 57], [29, 62]]]]], [], []], "class", "inputbox", "maxlength", "85"], ["loc", [null, [29, 3], [29, 96]]]], ["inline", "input", [], ["type", "text", "placeholder", "Password", "value", ["subexpr", "@mut", [["get", "password", ["loc", [null, [37, 52], [37, 60]]]]], [], []], "type", "password", "class", "inputbox", "maxlength", "85"], ["loc", [null, [37, 3], [37, 110]]]], ["element", "action", ["login"], [], ["loc", [null, [48, 34], [48, 52]]]], ["element", "action", ["signup"], [], ["loc", [null, [54, 32], [54, 51]]]]],
       locals: [],
       templates: []
     };
@@ -3295,7 +3299,7 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+22ef4b0b"});
+  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+72a95944"});
 }
 
 /* jshint ignore:end */
