@@ -148,6 +148,9 @@ define('studyapp-web/controllers/dashboard', ['exports', 'ember'], function (exp
 		actions: {}
 	});
 });
+define('studyapp-web/controllers/landing', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Controller.extend({});
+});
 define('studyapp-web/controllers/login', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].Controller.extend({
 		session: _ember['default'].inject.service("session"),
@@ -610,6 +613,9 @@ define('studyapp-web/routes/application', ['exports', 'ember', 'ember-simple-aut
 define('studyapp-web/routes/dashboard', ['exports', 'ember', 'ember-simple-auth/mixins/authenticated-route-mixin'], function (exports, _ember, _emberSimpleAuthMixinsAuthenticatedRouteMixin) {
   exports['default'] = _ember['default'].Route.extend(_emberSimpleAuthMixinsAuthenticatedRouteMixin['default']);
 });
+define('studyapp-web/routes/landing', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Route.extend({});
+});
 define('studyapp-web/routes/login', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({});
 });
@@ -973,6 +979,42 @@ define("studyapp-web/templates/dashboard", ["exports"], function (exports) {
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createTextNode("THIS IS THE DASHBOARD");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes() {
+        return [];
+      },
+      statements: [],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define("studyapp-web/templates/landing", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "revision": "Ember@1.13.12",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 13
+          }
+        },
+        "moduleName": "studyapp-web/templates/landing.hbs"
+      },
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("LANDING PAGE!");
         dom.appendChild(el0, el1);
         return el0;
       },
