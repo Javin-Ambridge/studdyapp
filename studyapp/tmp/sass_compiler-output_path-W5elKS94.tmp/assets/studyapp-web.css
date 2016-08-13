@@ -309,7 +309,7 @@
   cursor: pointer; }
 
 .footer-container {
-  color: red; }
+  background-color: ef5350; }
 
 .search-box-container {
   margin-left: auto;
@@ -378,5 +378,12 @@
   min-height: 587px;
   height: inherit;
   background-color: #FF9800; }
+
+footer {
+  clear: both;
+  line-height: 40px;
+  width: 100%;
+  position: fixed;
+  bottom: 0; }
 
 /*# sourceMappingURL=studyapp-web.css.map */

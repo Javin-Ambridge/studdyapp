@@ -619,7 +619,7 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 10,
+            "line": 14,
             "column": 0
           }
         },
@@ -630,27 +630,40 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("\n	");
+        dom.appendChild(el0, el1);
         var el1 = dom.createElement("footer");
-        var el2 = dom.createTextNode("\n	");
+        var el2 = dom.createTextNode("\n		");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "footer-container");
         var el3 = dom.createTextNode("\n		");
         dom.appendChild(el2, el3);
-        var el3 = dom.createElement("p");
-        var el4 = dom.createTextNode("1");
+        var el3 = dom.createElement("h2");
+        dom.setAttribute(el3, "style", "float:left");
+        var el4 = dom.createTextNode("Members");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createElement("p");
-        var el4 = dom.createTextNode("Sign up free with your email, name, address, and number.");
+        var el3 = dom.createTextNode("\n		");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("h2");
+        dom.setAttribute(el3, "style", "float:right");
+        var el4 = dom.createTextNode("Company");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n		");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("h2");
+        var el4 = dom.createTextNode("Contact");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n	");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n");
+        var el2 = dom.createTextNode("\n	");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
+        var el1 = dom.createTextNode("\n\n\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
@@ -660,10 +673,10 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        morphs[0] = dom.createMorphAt(fragment, 3, 3, contextualElement);
         return morphs;
       },
-      statements: [["content", "outlet", ["loc", [null, [7, 0], [7, 10]]]]],
+      statements: [["content", "outlet", ["loc", [null, [11, 0], [11, 10]]]]],
       locals: [],
       templates: []
     };
@@ -678,11 +691,11 @@ define("studyapp-web/templates/landing", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 11,
+              "line": 12,
               "column": 1
             },
             "end": {
-              "line": 20,
+              "line": 21,
               "column": 2
             }
           },
@@ -706,7 +719,7 @@ define("studyapp-web/templates/landing", ["exports"], function (exports) {
           morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["content", "uni.name", ["loc", [null, [19, 2], [19, 14]]]]],
+        statements: [["content", "uni.name", ["loc", [null, [20, 2], [20, 14]]]]],
         locals: ["uni"],
         templates: []
       };
@@ -718,11 +731,11 @@ define("studyapp-web/templates/landing", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 24,
+              "line": 25,
               "column": 1
             },
             "end": {
-              "line": 28,
+              "line": 29,
               "column": 1
             }
           },
@@ -762,7 +775,7 @@ define("studyapp-web/templates/landing", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 33,
+            "line": 34,
             "column": 0
           }
         },
@@ -792,27 +805,34 @@ define("studyapp-web/templates/landing", ["exports"], function (exports) {
         var el3 = dom.createTextNode("\n\n");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "search-box-container");
-        var el4 = dom.createTextNode("\n	");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("button");
-        dom.setAttribute(el4, "class", "go-buttons");
-        var el5 = dom.createTextNode("Go");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
+        dom.setAttribute(el3, "class", "wrapper");
         var el4 = dom.createTextNode("\n");
         dom.appendChild(el3, el4);
-        var el4 = dom.createComment("");
+        var el4 = dom.createElement("div");
+        dom.setAttribute(el4, "class", "search-box-container");
+        var el5 = dom.createTextNode("\n	");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("button");
+        dom.setAttribute(el5, "class", "go-buttons");
+        var el6 = dom.createTextNode("Go");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n	\n");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n	\n");
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("	");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createComment("");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("	\n	");
+        var el2 = dom.createTextNode("\n	");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("br");
         dom.appendChild(el1, el2);
@@ -826,16 +846,16 @@ define("studyapp-web/templates/landing", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [1]);
-        var element1 = dom.childAt(element0, [5, 1]);
+        var element0 = dom.childAt(fragment, [1, 5]);
+        var element1 = dom.childAt(element0, [1, 1]);
         var element2 = dom.childAt(element1, [1]);
         var morphs = new Array(3);
         morphs[0] = dom.createElementMorph(element2);
         morphs[1] = dom.createMorphAt(element1, 3, 3);
-        morphs[2] = dom.createMorphAt(element0, 7, 7);
+        morphs[2] = dom.createMorphAt(element0, 3, 3);
         return morphs;
       },
-      statements: [["element", "action", ["submitUni"], [], ["loc", [null, [10, 27], [10, 49]]]], ["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "universities", ["loc", [null, [12, 10], [12, 22]]]]], [], []], "onchange", ["subexpr", "action", ["chooseUniversity"], [], ["loc", [null, [13, 11], [13, 38]]]], "placeholder", "Please choose your university.", "allowClear", true, "selected", ["subexpr", "@mut", [["get", "uni", ["loc", [null, [16, 11], [16, 14]]]]], [], []], "class", "powerselect", "searchField", "name"], 0, null, ["loc", [null, [11, 1], [20, 19]]]], ["block", "if", [["get", "uniError", ["loc", [null, [24, 7], [24, 15]]]]], [], 1, null, ["loc", [null, [24, 1], [28, 8]]]]],
+      statements: [["element", "action", ["submitUni"], [], ["loc", [null, [11, 27], [11, 49]]]], ["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "universities", ["loc", [null, [13, 10], [13, 22]]]]], [], []], "onchange", ["subexpr", "action", ["chooseUniversity"], [], ["loc", [null, [14, 11], [14, 38]]]], "placeholder", "Please choose your university.", "allowClear", true, "selected", ["subexpr", "@mut", [["get", "uni", ["loc", [null, [17, 11], [17, 14]]]]], [], []], "class", "powerselect", "searchField", "name"], 0, null, ["loc", [null, [12, 1], [21, 19]]]], ["block", "if", [["get", "uniError", ["loc", [null, [25, 7], [25, 15]]]]], [], 1, null, ["loc", [null, [25, 1], [29, 8]]]]],
       locals: [],
       templates: [child0, child1]
     };
