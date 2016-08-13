@@ -1,0 +1,1 @@
+/home/aaron/Desktop/studdyapp/studyapp/tmp/broccoli_merge_trees-input_base_path-D88kzv6D.tmp/2/studyapp-web/tests/unit/controllers/sign-up-test.jshint.js
