@@ -38,6 +38,7 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-font-awesome": "2.1.0",
-    "ember-power-select": "0.10.3"
+    "ember-power-select": "0.10.3",
+    "ember-simple-auth": "1.1.0"
   }
 }
