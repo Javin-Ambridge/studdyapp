@@ -317,14 +317,14 @@ define('studyapp-web/controllers/sign-up', ['exports', 'ember'], function (expor
 							courses: arr
 						});
 						var self = this;
-						/*user.save().then(function(values) {
-      	self.set('alreadySignedUp', Ember.get(values, 'alreadySignedUp'));
-      	if (self.get('alreadySignedUp')) {
-      		Ember.run.later((function() {
-      			self.set('alreadySignedUp', false);
-      		}), 2000);
-      	}
-      });*/
+						user.save().then(function (values) {
+							self.set('alreadySignedUp', _ember['default'].get(values, 'alreadySignedUp'));
+							if (self.get('alreadySignedUp')) {
+								_ember['default'].run.later(function () {
+									self.set('alreadySignedUp', false);
+								}, 2000);
+							}
+						});
 						modal.style.display = "block";
 					} else {
 						if (!properFirstName) this.set('firstnameError', true);
@@ -1963,7 +1963,7 @@ define("studyapp-web/templates/sign-up", ["exports"], function (exports) {
           dom.appendChild(el3, el4);
           var el4 = dom.createElement("br");
           dom.appendChild(el3, el4);
-          var el4 = dom.createTextNode("\n			Almost Done\n		");
+          var el4 = dom.createTextNode("\n			Input a few pieces of information, and get started right away!\n		");
           dom.appendChild(el3, el4);
           dom.appendChild(el2, el3);
           var el3 = dom.createTextNode("\n		");

@@ -178,14 +178,14 @@ define('studyapp-web/controllers/sign-up', ['exports', 'ember'], function (expor
 							courses: arr
 						});
 						var self = this;
-						/*user.save().then(function(values) {
-      	self.set('alreadySignedUp', Ember.get(values, 'alreadySignedUp'));
-      	if (self.get('alreadySignedUp')) {
-      		Ember.run.later((function() {
-      			self.set('alreadySignedUp', false);
-      		}), 2000);
-      	}
-      });*/
+						user.save().then(function (values) {
+							self.set('alreadySignedUp', _ember['default'].get(values, 'alreadySignedUp'));
+							if (self.get('alreadySignedUp')) {
+								_ember['default'].run.later(function () {
+									self.set('alreadySignedUp', false);
+								}, 2000);
+							}
+						});
 						modal.style.display = "block";
 					} else {
 						if (!properFirstName) this.set('firstnameError', true);

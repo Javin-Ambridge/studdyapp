@@ -198,14 +198,14 @@ export default Ember.Controller.extend({
 						courses: arr
 					});
 					var self = this;
-					/*user.save().then(function(values) {
+					user.save().then(function(values) {
 						self.set('alreadySignedUp', Ember.get(values, 'alreadySignedUp'));
 						if (self.get('alreadySignedUp')) {
 							Ember.run.later((function() {
 								self.set('alreadySignedUp', false);
 							}), 2000);
 						}
-					});*/
+					});
     				modal.style.display = "block";
 
 				} else {

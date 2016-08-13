@@ -1040,7 +1040,7 @@ define("studyapp-web/templates/sign-up", ["exports"], function (exports) {
           dom.appendChild(el3, el4);
           var el4 = dom.createElement("br");
           dom.appendChild(el3, el4);
-          var el4 = dom.createTextNode("\n			Almost Done\n		");
+          var el4 = dom.createTextNode("\n			Input a few pieces of information, and get started right away!\n		");
           dom.appendChild(el3, el4);
           dom.appendChild(el2, el3);
           var el3 = dom.createTextNode("\n		");
