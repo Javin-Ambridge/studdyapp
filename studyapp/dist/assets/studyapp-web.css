@@ -235,7 +235,7 @@
 .login-page {
   width: 100%;
   min-height: 1024px;
-  background-image: url("/assets/imgsrc/loginbg.jpg");
+  background-image: url("/assets/images/loginbg.jpg");
   background-size: cover; }
 
 .login-topBlock {
