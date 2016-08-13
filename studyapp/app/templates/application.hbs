@@ -16,6 +16,8 @@
 	</div>
 	{{#unless session.isAuthenticated}}
 		<div class="learn-more">Learn More</div>
+	{{else}}
+		<div class="learn-more dashboard">Dashboard</div>
 	{{/unless}}
 </div>
 {{outlet}}

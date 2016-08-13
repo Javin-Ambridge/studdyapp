@@ -926,6 +926,47 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
         templates: []
       };
     })();
+    var child4 = (function () {
+      return {
+        meta: {
+          "revision": "Ember@1.13.12",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 19,
+              "column": 1
+            },
+            "end": {
+              "line": 21,
+              "column": 1
+            }
+          },
+          "moduleName": "studyapp-web/templates/application.hbs"
+        },
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("		");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "learn-more dashboard");
+          var el2 = dom.createTextNode("Dashboard");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() {
+          return [];
+        },
+        statements: [],
+        locals: [],
+        templates: []
+      };
+    })();
     return {
       meta: {
         "revision": "Ember@1.13.12",
@@ -936,7 +977,7 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 22,
+            "line": 24,
             "column": 0
           }
         },
@@ -986,9 +1027,9 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
         morphs[3] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         return morphs;
       },
-      statements: [["block", "link-to", ["landing"], ["class", "no-underline"], 0, null, ["loc", [null, [2, 1], [2, 147]]]], ["block", "if", [["get", "session.isAuthenticated", ["loc", [null, [4, 8], [4, 31]]]]], [], 1, 2, ["loc", [null, [4, 2], [15, 9]]]], ["block", "unless", [["get", "session.isAuthenticated", ["loc", [null, [17, 11], [17, 34]]]]], [], 3, null, ["loc", [null, [17, 1], [19, 12]]]], ["content", "outlet", ["loc", [null, [21, 0], [21, 10]]]]],
+      statements: [["block", "link-to", ["landing"], ["class", "no-underline"], 0, null, ["loc", [null, [2, 1], [2, 147]]]], ["block", "if", [["get", "session.isAuthenticated", ["loc", [null, [4, 8], [4, 31]]]]], [], 1, 2, ["loc", [null, [4, 2], [15, 9]]]], ["block", "unless", [["get", "session.isAuthenticated", ["loc", [null, [17, 11], [17, 34]]]]], [], 3, 4, ["loc", [null, [17, 1], [21, 12]]]], ["content", "outlet", ["loc", [null, [23, 0], [23, 10]]]]],
       locals: [],
-      templates: [child0, child1, child2, child3]
+      templates: [child0, child1, child2, child3, child4]
     };
   })());
 });
@@ -1004,8 +1045,8 @@ define("studyapp-web/templates/dashboard", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 1,
-            "column": 21
+            "line": 7,
+            "column": 153
           }
         },
         "moduleName": "studyapp-web/templates/dashboard.hbs"
@@ -1015,14 +1056,68 @@ define("studyapp-web/templates/dashboard", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createTextNode("THIS IS THE DASHBOARD");
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "box-container");
+        var el2 = dom.createTextNode("\n	");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "medium");
+        dom.setAttribute(el2, "style", "background-image: url('/assets/images/dashboardImage1.jpg');");
+        var el3 = dom.createTextNode("One");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n	");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "medium marginL");
+        dom.setAttribute(el2, "style", "background-image: url('/assets/images/dashboardImage2.jpg');");
+        var el3 = dom.createTextNode("Two");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n	");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "medium");
+        dom.setAttribute(el2, "style", "background-image: url('/assets/images/dashboardImage3.jpg');");
+        var el3 = dom.createTextNode("Three");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n	");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "medium marginL");
+        dom.setAttribute(el2, "style", "background-image: url('/assets/images/dashboardOtherThings.jpg');");
+        var el3 = dom.createTextNode("Four");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "loadmore-button-container");
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "load-button");
+        var el3 = dom.createTextNode("Load More");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("span");
+        dom.setAttribute(el3, "class", "increase-font-size");
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         return el0;
       },
-      buildRenderNodes: function buildRenderNodes() {
-        return [];
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [2, 0, 2]), 0, 0);
+        return morphs;
       },
-      statements: [],
+      statements: [["inline", "fa-icon", ["arrow-down"], [], ["loc", [null, [7, 110], [7, 134]]]]],
       locals: [],
       templates: []
     };
@@ -2197,7 +2292,7 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+528e7ad3"});
+  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+6d23cdc3"});
 }
 
 /* jshint ignore:end */
