@@ -1,3 +1,6 @@
+
+@import "login";
+
 @import 'ember-power-select/themes/bootstrap';
 @import 'ember-power-select';
 	
@@ -354,20 +357,6 @@
   border-top-width: 2px;
 }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    black;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    black;
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    black;
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    black;
-}
 
 .display-password-container {
   width: 50%;
@@ -400,12 +389,6 @@
   margin-right: auto;
 }
 
-.login-container {
-  width: 100%;
-  min-height: 587px;
-  height: inherit;
-  background-color: #FF9800;
-}
 
 
 
