@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-
+	session: Ember.inject.service("session"),
 	alreadySignedUp: false,
 	uni: null,
 	selectedCourses: [],
@@ -165,17 +165,30 @@ export default Ember.Controller.extend({
 					// Get the <span> element that closes the modal
 					var span = document.getElementsByClassName("close")[0];
 
+					var self = this;
 					// When the user clicks on <span> (x), close the modal
 					span.onclick = function() {
 					    modal.style.display = "none";
-					    window.location.href = ''
+					    if (!this.get('accountAlreadyCreated')) {
+								self.get('session').authenticate('authenticator:oauth2', 'USERNAME',
+								 'PASSWORD').catch((reason) => {
+								 		console.log("ERROR: " + reason);
+								 });
+				        self.transitionToRoute('dashboard');
+					    }
 					}
 
 					// When the user clicks anywhere outside of the modal, close it
 					window.onclick = function(event) {
 					    if (event.target == modal) {
-					        modal.style.display = "none";
-					        window.location.href = ''
+					      modal.style.display = "none";
+						    if (!self.get('accountAlreadyCreated')) {
+									self.get('session').authenticate('authenticator:oauth2', 'USERNAME',
+									 'PASSWORD').catch((reason) => {
+									 		console.log("ERROR: " + reason);
+									 });
+					        self.transitionToRoute('dashboard');
+						    }
 					    }
 					}
 
@@ -188,16 +201,11 @@ export default Ember.Controller.extend({
 						university: this.get('uni').name,
 						courses: arr
 					});
-					var self = this;
 					user.save().then(function(values) {
-						self.set('alreadySignedUp', Ember.get(values, 'alreadySignedUp'));
-						if (self.get('alreadySignedUp')) {
-							Ember.run.later((function() {
-								self.set('alreadySignedUp', false);
-							}), 2000);
-						}
+						var temp = Ember.get(values, 'alreadySignedUp');
+						self.set('alreadySignedUp', temp);
+	    			modal.style.display = "block";
 					});
-    				modal.style.display = "block";
 
 				} else {
 					if (!properFirstName)
