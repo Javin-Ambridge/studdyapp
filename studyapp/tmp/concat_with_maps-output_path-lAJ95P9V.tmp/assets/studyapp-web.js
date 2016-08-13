@@ -721,7 +721,7 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 83,
+            "line": 82,
             "column": 0
           }
         },
@@ -737,7 +737,7 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
         var el2 = dom.createTextNode("\n	");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "style", "width:100%;height:100px");
+        dom.setAttribute(el2, "class", "login-topBlock");
         var el3 = dom.createTextNode("\n	");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
@@ -947,15 +947,7 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
         var el3 = dom.createTextNode("\n\n	");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n	");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "login-container");
-        dom.setAttribute(el2, "style", "margin 0 auto");
-        var el3 = dom.createTextNode("\n	");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n");
+        var el2 = dom.createTextNode("\n	\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
