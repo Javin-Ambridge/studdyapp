@@ -6,11 +6,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-<<<<<<< HEAD
 	this.route('dashboard');
-=======
 	this.route('landing', { path: '/'});
->>>>>>> origin
   this.route('quote');
   this.route('sign-up');
   this.route('login');

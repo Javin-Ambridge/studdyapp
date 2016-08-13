@@ -600,6 +600,7 @@ define('studyapp-web/router', ['exports', 'ember', 'studyapp-web/config/environm
 
   Router.map(function () {
     this.route('dashboard');
+    this.route('landing', { path: '/' });
     this.route('quote');
     this.route('sign-up');
     this.route('login');
@@ -653,6 +654,50 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
+              "line": 2,
+              "column": 1
+            },
+            "end": {
+              "line": 2,
+              "column": 135
+            }
+          },
+          "moduleName": "studyapp-web/templates/application.hbs"
+        },
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "logo-icon");
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("h2");
+          dom.setAttribute(el1, "class", "logo-name");
+          var el2 = dom.createTextNode("WeStudy");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 0, 0);
+          return morphs;
+        },
+        statements: [["inline", "fa-icon", ["graduation-cap"], [], ["loc", [null, [2, 67], [2, 95]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child1 = (function () {
+      return {
+        meta: {
+          "revision": "Ember@1.13.12",
+          "loc": {
+            "source": null,
+            "start": {
               "line": 4,
               "column": 2
             },
@@ -700,7 +745,7 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
         templates: []
       };
     })();
-    var child1 = (function () {
+    var child2 = (function () {
       var child0 = (function () {
         return {
           meta: {
@@ -840,7 +885,7 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
         templates: [child0, child1]
       };
     })();
-    var child2 = (function () {
+    var child3 = (function () {
       return {
         meta: {
           "revision": "Ember@1.13.12",
@@ -906,15 +951,7 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
         dom.setAttribute(el1, "class", "top-bar");
         var el2 = dom.createTextNode("\n	");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "logo-icon");
-        var el3 = dom.createComment("");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h2");
-        dom.setAttribute(el2, "class", "logo-name");
-        var el3 = dom.createTextNode("WeStudy");
-        dom.appendChild(el2, el3);
+        var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n	");
         dom.appendChild(el1, el2);
@@ -943,15 +980,15 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element1 = dom.childAt(fragment, [0]);
         var morphs = new Array(4);
-        morphs[0] = dom.createMorphAt(dom.childAt(element1, [1]), 0, 0);
-        morphs[1] = dom.createMorphAt(dom.childAt(element1, [4]), 1, 1);
-        morphs[2] = dom.createMorphAt(element1, 6, 6);
+        morphs[0] = dom.createMorphAt(element1, 1, 1);
+        morphs[1] = dom.createMorphAt(dom.childAt(element1, [3]), 1, 1);
+        morphs[2] = dom.createMorphAt(element1, 5, 5);
         morphs[3] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         return morphs;
       },
-      statements: [["inline", "fa-icon", ["graduation-cap"], [], ["loc", [null, [2, 24], [2, 52]]]], ["block", "if", [["get", "session.isAuthenticated", ["loc", [null, [4, 8], [4, 31]]]]], [], 0, 1, ["loc", [null, [4, 2], [15, 9]]]], ["block", "unless", [["get", "session.isAuthenticated", ["loc", [null, [17, 11], [17, 34]]]]], [], 2, null, ["loc", [null, [17, 1], [19, 12]]]], ["content", "outlet", ["loc", [null, [21, 0], [21, 10]]]]],
+      statements: [["block", "link-to", ["landing"], ["class", "no-underline"], 0, null, ["loc", [null, [2, 1], [2, 147]]]], ["block", "if", [["get", "session.isAuthenticated", ["loc", [null, [4, 8], [4, 31]]]]], [], 1, 2, ["loc", [null, [4, 2], [15, 9]]]], ["block", "unless", [["get", "session.isAuthenticated", ["loc", [null, [17, 11], [17, 34]]]]], [], 3, null, ["loc", [null, [17, 1], [19, 12]]]], ["content", "outlet", ["loc", [null, [21, 0], [21, 10]]]]],
       locals: [],
-      templates: [child0, child1, child2]
+      templates: [child0, child1, child2, child3]
     };
   })());
 });

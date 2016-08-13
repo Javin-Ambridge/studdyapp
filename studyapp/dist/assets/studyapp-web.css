@@ -268,6 +268,9 @@
   text-decoration: underline;
   font-family: 'capriola', sans-serif; }
 
+.learn-more:hover {
+  color: red; }
+
 .top-bar {
   padding: 0px;
   margin: 0px;
@@ -284,7 +287,8 @@
     margin-left: 3px;
     margin-top: 8px;
     font-size: 31px;
-    font-family: 'galada', sans-serif; }
+    font-family: 'galada', sans-serif;
+    color: black; }
   .top-bar .login {
     text-decoration: none;
     color: black;
@@ -293,6 +297,8 @@
     height: inherit;
     margin-top: -10px;
     font-family: 'capriola', sans-serif; }
+  .top-bar .login:hover {
+    color: red; }
   .top-bar .logout {
     text-decoration: none;
     color: black;
@@ -312,12 +318,15 @@
     float: left;
     font-size: 40px;
     margin-top: 5px;
-    margin-left: 10px; }
+    margin-left: 10px;
+    color: black; }
   .top-bar .signup {
     color: black;
     font-size: 25px;
     margin-top: -10px;
     font-family: 'capriola', sans-serif; }
+  .top-bar .signup:hover {
+    color: red; }
 
 .span-float-right {
   position: relative;

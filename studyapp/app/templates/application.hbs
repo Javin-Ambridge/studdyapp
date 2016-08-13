@@ -1,5 +1,5 @@
 <div class="top-bar">
-	<div class="logo-icon">{{fa-icon "graduation-cap"}}</div><h2 class="logo-name">WeStudy</h2>
+	{{#link-to 'landing' class="no-underline"}}<div class="logo-icon">{{fa-icon "graduation-cap"}}</div><h2 class="logo-name">WeStudy</h2>{{/link-to}}
 	<div class="top-menu-bar">
 		{{#if session.isAuthenticated}}
 			<div class="fiftyPerc right">
