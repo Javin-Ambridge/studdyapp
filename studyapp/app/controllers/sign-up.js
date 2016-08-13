@@ -65,15 +65,6 @@ export default Ember.Controller.extend({
 
 	actions: {
 		saveUser() {
-			var user = this.store.createRecord('user', {
-				firstname: 'Javin',
-				lastname: 'Ambridge',
-				email: 'javin.ambridge@gmail.com',
-				password: 'password',
-				admin: true,
-				university: 'University of Waterloo',
-				courses: ['Math239', 'CS241', 'CS240', 'CS251']
-			});
 			var self = this;
 			user.save().then(function(values) {
 				self.set('alreadySignedUp', Ember.get(values, 'alreadySignedUp'));
