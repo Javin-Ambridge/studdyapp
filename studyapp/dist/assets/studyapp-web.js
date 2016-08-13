@@ -651,83 +651,6 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
               "column": 2
             },
             "end": {
-              "line": 6,
-              "column": 2
-            }
-          },
-          "moduleName": "studyapp-web/templates/application.hbs"
-        },
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("			");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("a");
-          var el2 = dom.createTextNode("LOGOUT");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element0 = dom.childAt(fragment, [1]);
-          var morphs = new Array(1);
-          morphs[0] = dom.createElementMorph(element0);
-          return morphs;
-        },
-        statements: [["element", "action", ["logout"], [], ["loc", [null, [5, 6], [5, 25]]]]],
-        locals: [],
-        templates: []
-      };
-    })();
-    var child1 = (function () {
-      var child0 = (function () {
-        return {
-          meta: {
-            "revision": "Ember@1.13.12",
-            "loc": {
-              "source": null,
-              "start": {
-                "line": 7,
-                "column": 3
-              },
-              "end": {
-                "line": 7,
-                "column": 42
-              }
-            },
-            "moduleName": "studyapp-web/templates/application.hbs"
-          },
-          arity: 0,
-          cachedFragment: null,
-          hasRendered: false,
-          buildFragment: function buildFragment(dom) {
-            var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("LOGIN");
-            dom.appendChild(el0, el1);
-            return el0;
-          },
-          buildRenderNodes: function buildRenderNodes() {
-            return [];
-          },
-          statements: [],
-          locals: [],
-          templates: []
-        };
-      })();
-      return {
-        meta: {
-          "revision": "Ember@1.13.12",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 6,
-              "column": 2
-            },
-            "end": {
               "line": 8,
               "column": 2
             }
@@ -741,20 +664,215 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
           var el0 = dom.createDocumentFragment();
           var el1 = dom.createTextNode("			");
           dom.appendChild(el0, el1);
-          var el1 = dom.createComment("");
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "fiftyPerc right");
+          var el2 = dom.createTextNode("\n				");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("a");
+          dom.setAttribute(el2, "class", "no-underline");
+          var el3 = dom.createElement("div");
+          dom.setAttribute(el3, "class", "login");
+          var el4 = dom.createTextNode("Log Out");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n			");
+          dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1, 1]);
           var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          morphs[0] = dom.createElementMorph(element0);
           return morphs;
         },
-        statements: [["block", "link-to", ["login"], ["class", "login"], 0, null, ["loc", [null, [7, 3], [7, 54]]]]],
+        statements: [["element", "action", ["logout"], [], ["loc", [null, [6, 7], [6, 26]]]]],
         locals: [],
-        templates: [child0]
+        templates: []
+      };
+    })();
+    var child1 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "revision": "Ember@1.13.12",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 10,
+                "column": 4
+              },
+              "end": {
+                "line": 10,
+                "column": 79
+              }
+            },
+            "moduleName": "studyapp-web/templates/application.hbs"
+          },
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "class", "signup");
+            var el2 = dom.createTextNode("Signup");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child1 = (function () {
+        return {
+          meta: {
+            "revision": "Ember@1.13.12",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 13,
+                "column": 4
+              },
+              "end": {
+                "line": 13,
+                "column": 125
+              }
+            },
+            "moduleName": "studyapp-web/templates/application.hbs"
+          },
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "class", "login");
+            var el2 = dom.createElement("div");
+            dom.setAttribute(el2, "class", "login-icon");
+            var el3 = dom.createComment("");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode(" Log In");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0, 0]), 0, 0);
+            return morphs;
+          },
+          statements: [["inline", "fa-icon", ["male"], [], ["loc", [null, [13, 88], [13, 106]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "revision": "Ember@1.13.12",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 8,
+              "column": 2
+            },
+            "end": {
+              "line": 15,
+              "column": 2
+            }
+          },
+          "moduleName": "studyapp-web/templates/application.hbs"
+        },
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("			");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "fiftyPerc left");
+          var el2 = dom.createTextNode("\n				");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n			");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n			");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "fiftyPerc right");
+          var el2 = dom.createTextNode("\n				");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n			");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(2);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
+          morphs[1] = dom.createMorphAt(dom.childAt(fragment, [3]), 1, 1);
+          return morphs;
+        },
+        statements: [["block", "link-to", ["sign-up"], ["class", "no-underline"], 0, null, ["loc", [null, [10, 4], [10, 91]]]], ["block", "link-to", ["login"], ["class", "no-underline"], 1, null, ["loc", [null, [13, 4], [13, 137]]]]],
+        locals: [],
+        templates: [child0, child1]
+      };
+    })();
+    var child2 = (function () {
+      return {
+        meta: {
+          "revision": "Ember@1.13.12",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 17,
+              "column": 1
+            },
+            "end": {
+              "line": 19,
+              "column": 1
+            }
+          },
+          "moduleName": "studyapp-web/templates/application.hbs"
+        },
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("		");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "learn-more");
+          var el2 = dom.createTextNode("Learn More");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() {
+          return [];
+        },
+        statements: [],
+        locals: [],
+        templates: []
       };
     })();
     return {
@@ -767,7 +885,7 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 12,
+            "line": 22,
             "column": 0
           }
         },
@@ -805,6 +923,8 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
@@ -816,15 +936,16 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element1 = dom.childAt(fragment, [0]);
-        var morphs = new Array(3);
+        var morphs = new Array(4);
         morphs[0] = dom.createMorphAt(dom.childAt(element1, [1]), 0, 0);
         morphs[1] = dom.createMorphAt(dom.childAt(element1, [4]), 1, 1);
-        morphs[2] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        morphs[2] = dom.createMorphAt(element1, 6, 6);
+        morphs[3] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         return morphs;
       },
-      statements: [["inline", "fa-icon", ["graduation-cap"], [], ["loc", [null, [2, 24], [2, 52]]]], ["block", "if", [["get", "session.isAuthenticated", ["loc", [null, [4, 8], [4, 31]]]]], [], 0, 1, ["loc", [null, [4, 2], [8, 9]]]], ["content", "outlet", ["loc", [null, [11, 0], [11, 10]]]]],
+      statements: [["inline", "fa-icon", ["graduation-cap"], [], ["loc", [null, [2, 24], [2, 52]]]], ["block", "if", [["get", "session.isAuthenticated", ["loc", [null, [4, 8], [4, 31]]]]], [], 0, 1, ["loc", [null, [4, 2], [15, 9]]]], ["block", "unless", [["get", "session.isAuthenticated", ["loc", [null, [17, 11], [17, 34]]]]], [], 2, null, ["loc", [null, [17, 1], [19, 12]]]], ["content", "outlet", ["loc", [null, [21, 0], [21, 10]]]]],
       locals: [],
-      templates: [child0, child1]
+      templates: [child0, child1, child2]
     };
   })());
 });
@@ -1997,7 +2118,7 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+8df8ae50"});
+  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+528e7ad3"});
 }
 
 /* jshint ignore:end */

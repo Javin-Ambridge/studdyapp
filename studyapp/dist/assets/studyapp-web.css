@@ -238,16 +238,46 @@
   font-weight: normal;
   font-style: normal; }
 
+@font-face {
+  font-family: 'capriola';
+  src: url("../assets/fonts/capriolaFont.ttf");
+  font-weight: normal;
+  font-style: normal; }
+
+.no-underline {
+  text-decoration: none; }
+
+.fiftyPerc {
+  width: 50%; }
+  .fiftyPerc.left {
+    float: left; }
+  .fiftyPerc.right {
+    float: right; }
+
 .bold {
   font-weight: bold; }
   .bold.large {
     font-size: 55px; }
+
+.learn-more {
+  width: inherit;
+  float: right;
+  font-size: 25px;
+  margin-right: 22px;
+  margin-top: 15px;
+  text-decoration: underline;
+  font-family: 'capriola', sans-serif; }
 
 .top-bar {
   padding: 0px;
   margin: 0px;
   height: 50px;
   opacity: 60; }
+  .top-bar .login-icon {
+    float: left;
+    padding-right: 10px;
+    font-size: 35px;
+    margin-top: -7px; }
   .top-bar .logo-name {
     width: inherit;
     float: left;
@@ -255,16 +285,39 @@
     margin-top: 8px;
     font-size: 31px;
     font-family: 'galada', sans-serif; }
+  .top-bar .login {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    width: inherit;
+    height: inherit;
+    margin-top: -10px;
+    font-family: 'capriola', sans-serif; }
+  .top-bar .logout {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    width: inherit;
+    height: inherit;
+    margin-top: -10px;
+    font-family: 'capriola', sans-serif;
+    float: right; }
   .top-bar .top-menu-bar {
     float: right;
     margin-top: 25px;
-    margin-right: 50px; }
+    margin-right: 50px;
+    width: 220px; }
   .top-bar .logo-icon {
     width: inherit;
     float: left;
     font-size: 40px;
     margin-top: 5px;
     margin-left: 10px; }
+  .top-bar .signup {
+    color: black;
+    font-size: 25px;
+    margin-top: -10px;
+    font-family: 'capriola', sans-serif; }
 
 .span-float-right {
   position: relative;

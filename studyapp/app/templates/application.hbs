@@ -2,10 +2,20 @@
 	<div class="logo-icon">{{fa-icon "graduation-cap"}}</div><h2 class="logo-name">WeStudy</h2>
 	<div class="top-menu-bar">
 		{{#if session.isAuthenticated}}
-			<a {{action 'logout'}}>LOGOUT</a>
+			<div class="fiftyPerc right">
+				<a {{action 'logout'}} class="no-underline"><div class="login">Log Out</div></a>
+			</div>
 		{{else}}
-			{{#link-to 'login' class="login"}}LOGIN{{/link-to}}
+			<div class="fiftyPerc left">
+				{{#link-to 'sign-up' class="no-underline"}}<div class="signup">Signup</div>{{/link-to}}
+			</div>
+			<div class="fiftyPerc right">
+				{{#link-to 'login' class="no-underline"}}<div class="login"><div class="login-icon">{{fa-icon "male"}}</div> Log In</div>{{/link-to}}
+			</div>
 		{{/if}}
 	</div>
+	{{#unless session.isAuthenticated}}
+		<div class="learn-more">Learn More</div>
+	{{/unless}}
 </div>
 {{outlet}}
