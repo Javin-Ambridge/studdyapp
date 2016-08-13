@@ -19,6 +19,9 @@ define('studyapp-web/app', ['exports', 'ember', 'ember/resolver', 'ember/load-in
 
   exports['default'] = App;
 });
+define('studyapp-web/authenticators/oauth2', ['exports', 'ember-simple-auth/authenticators/oauth2-password-grant'], function (exports, _emberSimpleAuthAuthenticatorsOauth2PasswordGrant) {
+  exports['default'] = _emberSimpleAuthAuthenticatorsOauth2PasswordGrant['default'].extend();
+});
 define('studyapp-web/components/app-version', ['exports', 'ember-cli-app-version/components/app-version', 'studyapp-web/config/environment'], function (exports, _emberCliAppVersionComponentsAppVersion, _studyappWebConfigEnvironment) {
 
   var name = _studyappWebConfigEnvironment['default'].APP.name;
@@ -125,13 +128,39 @@ define('studyapp-web/components/power-select', ['exports', 'ember-power-select/c
     }
   });
 });
+define('studyapp-web/controllers/application', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Controller.extend({
+		session: _ember['default'].inject.service("session"),
+
+		actions: {
+			logout: function logout() {
+				this.get('session').invalidate();
+			}
+		}
+	});
+});
 define('studyapp-web/controllers/array', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
 });
+define('studyapp-web/controllers/dashboard', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Controller.extend({
+
+		actions: {}
+	});
+});
 define('studyapp-web/controllers/login', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].Controller.extend({
+		session: _ember['default'].inject.service("session"),
 		email: null,
-		password: null
+		password: null,
+
+		actions: {
+			authenticate: function authenticate() {
+				this.get('session').authenticate('authenticator:oauth2', 'USERNAME', 'PASSWORD')['catch'](function (reason) {
+					console.log("ERROR: " + reason);
+				});
+			}
+		}
 	});
 });
 define('studyapp-web/controllers/object', ['exports', 'ember'], function (exports, _ember) {
@@ -460,6 +489,19 @@ define('studyapp-web/initializers/app-version', ['exports', 'ember-cli-app-versi
     initialize: (0, _emberCliAppVersionInitializerFactory['default'])(_studyappWebConfigEnvironment['default'].APP.name, _studyappWebConfigEnvironment['default'].APP.version)
   };
 });
+define('studyapp-web/initializers/ember-simple-auth', ['exports', 'ember', 'studyapp-web/config/environment', 'ember-simple-auth/configuration', 'ember-simple-auth/initializers/setup-session', 'ember-simple-auth/initializers/setup-session-service'], function (exports, _ember, _studyappWebConfigEnvironment, _emberSimpleAuthConfiguration, _emberSimpleAuthInitializersSetupSession, _emberSimpleAuthInitializersSetupSessionService) {
+  exports['default'] = {
+    name: 'ember-simple-auth',
+    initialize: function initialize(registry) {
+      var config = _studyappWebConfigEnvironment['default']['ember-simple-auth'] || {};
+      config.baseURL = _studyappWebConfigEnvironment['default'].baseURL;
+      _emberSimpleAuthConfiguration['default'].load(config);
+
+      (0, _emberSimpleAuthInitializersSetupSession['default'])(registry);
+      (0, _emberSimpleAuthInitializersSetupSessionService['default'])(registry);
+    }
+  };
+});
 define('studyapp-web/initializers/export-application-global', ['exports', 'ember', 'studyapp-web/config/environment'], function (exports, _ember, _studyappWebConfigEnvironment) {
   exports.initialize = initialize;
 
@@ -522,6 +564,14 @@ define('studyapp-web/initializers/truth-helpers', ['exports', 'ember', 'ember-tr
     initialize: initialize
   };
 });
+define('studyapp-web/instance-initializers/ember-simple-auth', ['exports', 'ember-simple-auth/instance-initializers/setup-session-restoration'], function (exports, _emberSimpleAuthInstanceInitializersSetupSessionRestoration) {
+  exports['default'] = {
+    name: 'ember-simple-auth',
+    initialize: function initialize(instance) {
+      (0, _emberSimpleAuthInstanceInitializersSetupSessionRestoration['default'])(instance);
+    }
+  };
+});
 define('studyapp-web/models/quote', ['exports', 'ember-data'], function (exports, _emberData) {
   exports['default'] = _emberData['default'].Model.extend({
     quote: _emberData['default'].attr('string'),
@@ -546,12 +596,19 @@ define('studyapp-web/router', ['exports', 'ember', 'studyapp-web/config/environm
   });
 
   Router.map(function () {
+    this.route('dashboard');
     this.route('quote');
     this.route('sign-up');
     this.route('login');
   });
 
   exports['default'] = Router;
+});
+define('studyapp-web/routes/application', ['exports', 'ember', 'ember-simple-auth/mixins/application-route-mixin'], function (exports, _ember, _emberSimpleAuthMixinsApplicationRouteMixin) {
+  exports['default'] = _ember['default'].Route.extend(_emberSimpleAuthMixinsApplicationRouteMixin['default']);
+});
+define('studyapp-web/routes/dashboard', ['exports', 'ember', 'ember-simple-auth/mixins/authenticated-route-mixin'], function (exports, _ember, _emberSimpleAuthMixinsAuthenticatedRouteMixin) {
+  exports['default'] = _ember['default'].Route.extend(_emberSimpleAuthMixinsAuthenticatedRouteMixin['default']);
 });
 define('studyapp-web/routes/login', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({});
@@ -575,7 +632,203 @@ define('studyapp-web/serializers/application', ['exports', 'ember-data'], functi
 		primaryKey: '_id'
 	});
 });
+define('studyapp-web/services/session', ['exports', 'ember-simple-auth/services/session'], function (exports, _emberSimpleAuthServicesSession) {
+  exports['default'] = _emberSimpleAuthServicesSession['default'];
+});
+define('studyapp-web/session-stores/application', ['exports', 'ember-simple-auth/session-stores/adaptive'], function (exports, _emberSimpleAuthSessionStoresAdaptive) {
+  exports['default'] = _emberSimpleAuthSessionStoresAdaptive['default'].extend();
+});
 define("studyapp-web/templates/application", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "revision": "Ember@1.13.12",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 4,
+              "column": 2
+            },
+            "end": {
+              "line": 6,
+              "column": 2
+            }
+          },
+          "moduleName": "studyapp-web/templates/application.hbs"
+        },
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("			");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("a");
+          var el2 = dom.createTextNode("LOGOUT");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1]);
+          var morphs = new Array(1);
+          morphs[0] = dom.createElementMorph(element0);
+          return morphs;
+        },
+        statements: [["element", "action", ["logout"], [], ["loc", [null, [5, 6], [5, 25]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child1 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "revision": "Ember@1.13.12",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 7,
+                "column": 3
+              },
+              "end": {
+                "line": 7,
+                "column": 42
+              }
+            },
+            "moduleName": "studyapp-web/templates/application.hbs"
+          },
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("LOGIN");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "revision": "Ember@1.13.12",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 6,
+              "column": 2
+            },
+            "end": {
+              "line": 8,
+              "column": 2
+            }
+          },
+          "moduleName": "studyapp-web/templates/application.hbs"
+        },
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("			");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["block", "link-to", ["login"], ["class", "login"], 0, null, ["loc", [null, [7, 3], [7, 54]]]]],
+        locals: [],
+        templates: [child0]
+      };
+    })();
+    return {
+      meta: {
+        "revision": "Ember@1.13.12",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": 0
+          }
+        },
+        "moduleName": "studyapp-web/templates/application.hbs"
+      },
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "top-bar");
+        var el2 = dom.createTextNode("\n	");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "logo-icon");
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h2");
+        dom.setAttribute(el2, "class", "logo-name");
+        var el3 = dom.createTextNode("WeStudy");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n	");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "top-menu-bar");
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("	");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element1 = dom.childAt(fragment, [0]);
+        var morphs = new Array(3);
+        morphs[0] = dom.createMorphAt(dom.childAt(element1, [1]), 0, 0);
+        morphs[1] = dom.createMorphAt(dom.childAt(element1, [4]), 1, 1);
+        morphs[2] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        return morphs;
+      },
+      statements: [["inline", "fa-icon", ["graduation-cap"], [], ["loc", [null, [2, 24], [2, 52]]]], ["block", "if", [["get", "session.isAuthenticated", ["loc", [null, [4, 8], [4, 31]]]]], [], 0, 1, ["loc", [null, [4, 2], [8, 9]]]], ["content", "outlet", ["loc", [null, [11, 0], [11, 10]]]]],
+      locals: [],
+      templates: [child0, child1]
+    };
+  })());
+});
+define("studyapp-web/templates/dashboard", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
@@ -587,36 +840,25 @@ define("studyapp-web/templates/application", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 4,
-            "column": 0
+            "line": 1,
+            "column": 21
           }
         },
-        "moduleName": "studyapp-web/templates/application.hbs"
+        "moduleName": "studyapp-web/templates/dashboard.hbs"
       },
       arity: 0,
       cachedFragment: null,
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createElement("h2");
-        dom.setAttribute(el1, "id", "title");
-        var el2 = dom.createTextNode("Study Buddy!");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
+        var el1 = dom.createTextNode("THIS IS THE DASHBOARD");
         dom.appendChild(el0, el1);
         return el0;
       },
-      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
-        return morphs;
+      buildRenderNodes: function buildRenderNodes() {
+        return [];
       },
-      statements: [["content", "outlet", ["loc", [null, [3, 0], [3, 10]]]]],
+      statements: [],
       locals: [],
       templates: []
     };
@@ -745,7 +987,7 @@ define("studyapp-web/templates/login", ["exports"], function (exports) {
         morphs[2] = dom.createElementMorph(element1);
         return morphs;
       },
-      statements: [["inline", "input", [], ["type", "text", "value", ["subexpr", "@mut", [["get", "email", ["loc", [null, [10, 28], [10, 33]]]]], [], []], "class", "inputbox", "maxlength", "85"], ["loc", [null, [10, 2], [10, 67]]]], ["inline", "input", [], ["type", "text", "value", ["subexpr", "@mut", [["get", "password", ["loc", [null, [17, 28], [17, 36]]]]], [], []], "type", "password", "class", "inputbox", "maxlength", "85"], ["loc", [null, [17, 2], [17, 86]]]], ["element", "action", ["login"], [], ["loc", [null, [21, 26], [21, 44]]]]],
+      statements: [["inline", "input", [], ["type", "text", "value", ["subexpr", "@mut", [["get", "email", ["loc", [null, [10, 28], [10, 33]]]]], [], []], "class", "inputbox", "maxlength", "85"], ["loc", [null, [10, 2], [10, 67]]]], ["inline", "input", [], ["type", "text", "value", ["subexpr", "@mut", [["get", "password", ["loc", [null, [17, 28], [17, 36]]]]], [], []], "type", "password", "class", "inputbox", "maxlength", "85"], ["loc", [null, [17, 2], [17, 86]]]], ["element", "action", ["authenticate"], [], ["loc", [null, [21, 26], [21, 51]]]]],
       locals: [],
       templates: []
     };
@@ -1755,7 +1997,7 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+ef42ac64"});
+  require("studyapp-web/app")["default"].create({"name":"studyapp-web","version":"0.0.0+8df8ae50"});
 }
 
 /* jshint ignore:end */

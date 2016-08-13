@@ -232,10 +232,39 @@
 .ember-power-select-dropdown[dir=rtl] .ember-power-select-group .ember-power-select-group-name {
   padding-right: 8px; }
 
+@font-face {
+  font-family: 'galada';
+  src: url("../assets/fonts/galadaFont.ttf");
+  font-weight: normal;
+  font-style: normal; }
+
 .bold {
   font-weight: bold; }
   .bold.large {
     font-size: 55px; }
+
+.top-bar {
+  padding: 0px;
+  margin: 0px;
+  height: 50px;
+  opacity: 60; }
+  .top-bar .logo-name {
+    width: inherit;
+    float: left;
+    margin-left: 3px;
+    margin-top: 8px;
+    font-size: 31px;
+    font-family: 'galada', sans-serif; }
+  .top-bar .top-menu-bar {
+    float: right;
+    margin-top: 25px;
+    margin-right: 50px; }
+  .top-bar .logo-icon {
+    width: inherit;
+    float: left;
+    font-size: 40px;
+    margin-top: 5px;
+    margin-left: 10px; }
 
 .span-float-right {
   position: relative;

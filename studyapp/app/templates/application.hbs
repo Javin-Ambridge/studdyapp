@@ -1,3 +1,11 @@
-<h2 id="title">Study Buddy!</h2>
-
+<div class="top-bar">
+	<div class="logo-icon">{{fa-icon "graduation-cap"}}</div><h2 class="logo-name">WeStudy</h2>
+	<div class="top-menu-bar">
+		{{#if session.isAuthenticated}}
+			<a {{action 'logout'}}>LOGOUT</a>
+		{{else}}
+			{{#link-to 'login' class="login"}}LOGIN{{/link-to}}
+		{{/if}}
+	</div>
+</div>
 {{outlet}}

@@ -7,13 +7,40 @@ define('studyapp-web/tests/app.jshint', ['exports'], function (exports) {
     assert.ok(false, 'app.js should pass jshint.\napp.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\napp.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\napp.js: line 3, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\napp.js: line 4, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\napp.js: line 6, col 1, \'let\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\napp.js: line 13, col 3, \'object short notation\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\napp.js: line 18, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n7 errors');
   });
 });
+define('studyapp-web/tests/authenticators/oauth2.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - authenticators/oauth2.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'authenticators/oauth2.js should pass jshint.\nauthenticators/oauth2.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nauthenticators/oauth2.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n2 errors');
+  });
+});
+define('studyapp-web/tests/controllers/application.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - controllers/application.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'controllers/application.js should pass jshint.\ncontrollers/application.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/application.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/application.js: line 7, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n3 errors');
+  });
+});
+define('studyapp-web/tests/controllers/dashboard.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - controllers/dashboard.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'controllers/dashboard.js should pass jshint.\ncontrollers/dashboard.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/dashboard.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n2 errors');
+  });
+});
 define('studyapp-web/tests/controllers/login.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint - controllers/login.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/login.js should pass jshint.\ncontrollers/login.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/login.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n2 errors');
+    assert.ok(false, 'controllers/login.js should pass jshint.\ncontrollers/login.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/login.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/login.js: line 9, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/login.js: line 11, col 39, \'arrow function syntax (=>)\' is only available in ES6 (use \'esversion: 6\').\n\n4 errors');
   });
 });
 define('studyapp-web/tests/controllers/sign-up.jshint', ['exports'], function (exports) {
@@ -271,6 +298,47 @@ define('studyapp-web/tests/helpers/ember-power-select', ['exports', 'ember'], fu
     });
   };
 });
+define('studyapp-web/tests/helpers/ember-simple-auth', ['exports', 'ember-simple-auth/authenticators/test'], function (exports, _emberSimpleAuthAuthenticatorsTest) {
+  exports.authenticateSession = authenticateSession;
+  exports.currentSession = currentSession;
+  exports.invalidateSession = invalidateSession;
+
+  var TEST_CONTAINER_KEY = 'authenticator:test';
+
+  function ensureAuthenticator(app, container) {
+    var authenticator = container.lookup(TEST_CONTAINER_KEY);
+    if (!authenticator) {
+      app.register(TEST_CONTAINER_KEY, _emberSimpleAuthAuthenticatorsTest['default']);
+    }
+  }
+
+  function authenticateSession(app, sessionData) {
+    var container = app.__container__;
+
+    var session = container.lookup('service:session');
+    ensureAuthenticator(app, container);
+    session.authenticate(TEST_CONTAINER_KEY, sessionData);
+    return wait();
+  }
+
+  ;
+
+  function currentSession(app) {
+    return app.__container__.lookup('service:session');
+  }
+
+  ;
+
+  function invalidateSession(app) {
+    var session = app.__container__.lookup('service:session');
+    if (session.get('isAuthenticated')) {
+      session.invalidate();
+    }
+    return wait();
+  }
+
+  ;
+});
 define('studyapp-web/tests/helpers/int-equal.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -383,7 +451,25 @@ define('studyapp-web/tests/router.jshint', ['exports'], function (exports) {
   QUnit.module('JSHint - router.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'router.js should pass jshint.\nrouter.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 4, col 1, \'const\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\nrouter.js: line 14, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n4 errors');
+    assert.ok(false, 'router.js should pass jshint.\nrouter.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 4, col 1, \'const\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\nrouter.js: line 15, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n4 errors');
+  });
+});
+define('studyapp-web/tests/routes/application.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - routes/application.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'routes/application.js should pass jshint.\nroutes/application.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/application.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/application.js: line 4, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n3 errors');
+  });
+});
+define('studyapp-web/tests/routes/dashboard.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - routes/dashboard.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'routes/dashboard.js should pass jshint.\nroutes/dashboard.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/dashboard.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/dashboard.js: line 4, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n3 errors');
   });
 });
 define('studyapp-web/tests/routes/login.jshint', ['exports'], function (exports) {
