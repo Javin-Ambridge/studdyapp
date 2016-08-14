@@ -3,11 +3,14 @@
 var User = require('../models/user');
 
 module.exports.getAllUsers = function(req, res) {  
+    //console.log(req);
     User.find(function(err, users) {
         if (err) {
             res.send(err);
         }
         res.json({users: users});
+        //console.log("RES::");
+        //console.log(res);
     });
 };
 

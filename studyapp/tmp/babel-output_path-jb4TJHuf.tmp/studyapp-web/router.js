@@ -10,6 +10,7 @@ define('studyapp-web/router', ['exports', 'ember', 'studyapp-web/config/environm
     this.route('quote');
     this.route('sign-up');
     this.route('login');
+    this.route('reset-password');
   });
 
   exports['default'] = Router;

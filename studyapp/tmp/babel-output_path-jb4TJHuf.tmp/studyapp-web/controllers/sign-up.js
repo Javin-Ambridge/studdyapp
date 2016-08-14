@@ -1,29 +1,22 @@
 define('studyapp-web/controllers/sign-up', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].Controller.extend({
-
 		alreadySignedUp: false,
 		uni: null,
 		selectedCourses: [],
 		currentStep: 1,
 		uniError: false,
 		courseError: false,
-		firstname: null,
-		lastname: null,
+		name: null,
 		email: null,
 		password: null,
 		displayPassword: false,
-		firstnameError: false,
-		lastnameError: false,
-		password1Error: false,
-		password2Error: false,
-		passwordMatchError: false,
+		nameError: false,
+		passwordError: false,
 		emailError: false,
 		universities: [{
 			name: 'University of Waterloo'
 		}, {
 			name: 'Wilfred Laurier'
-		}, {
-			name: 'University of Toronto'
 		}],
 		courses: [{
 			name: 'Combinatorics',
@@ -53,6 +46,14 @@ define('studyapp-web/controllers/sign-up', ['exports', 'ember'], function (expor
 
 		actions: {
 			saveUser: function saveUser() {
+				var user = this.store.createRecord('user', {
+					name: 'Javin Ambridge',
+					email: 'javin.ambridge@gmail.com',
+					password: 'password',
+					admin: true,
+					university: 'University of Waterloo',
+					courses: ['Math239', 'CS241', 'CS240', 'CS251']
+				});
 				var self = this;
 				user.save().then(function (values) {
 					self.set('alreadySignedUp', _ember['default'].get(values, 'alreadySignedUp'));
@@ -71,7 +72,6 @@ define('studyapp-web/controllers/sign-up', ['exports', 'ember'], function (expor
 				this.set('uni', uni);
 			},
 			nextStep: function nextStep() {
-
 				if (this.get('currentStep') === 1) {
 					var canContinue = true;
 					if (this.get('selectedCourses').length == 0) {
@@ -84,86 +84,23 @@ define('studyapp-web/controllers/sign-up', ['exports', 'ember'], function (expor
 					}
 					if (canContinue) this.set('currentStep', 2);
 				} else if (this.get('currentStep') === 2) {
-					var properFirstName = false;
-					var properLastName = false;
+					var properName = false;
 					var properEmail = false;
-					var properPassword1 = false;
-					var properPassword2 = false;
-					var passwordMatch = false;
+					var properPassword = false;
 
-					if (this.get('firstname') === null) {
-						this.set('firstnameError', true);
-					} else {
-						this.set('firstnameError', false);
-					}
-					if (this.get('lastname') === null) {
-						this.set('lastnameError', true);
-					} else {
-						this.set('lastnameError', false);
-					}
-					if (this.get('email') === null) {
-						this.set('emailError', true);
-					} else {
-						this.set('emailError', false);
-					}
-					if (this.get('password1') === null) {
-						this.set('password1Error', true);
-					} else {
-						this.set('password1Error', false);
-					}
-					if (this.get('password2') === null) {
-						this.set('password2Error', true);
-					} else {
-						this.set('password2Error', false);
-					}
-
-					if (this.get('firstname').length > 0) properFirstName = true;
-					if (this.get('lastname').length > 0) properLastName = true;
+					if (this.get('name').replace(/.+\s.+/g, "").length != this.get('name').length) properName = true;
 					if (this.get('email').replace(/.+@.+\..+/g, "").length != this.get('email').length) properEmail = true;
-					if (this.get('password1').length > 0) properPassword1 = true;
-					if (this.get('password2').length > 0) properPassword2 = true;
-					if (this.get('password1') === this.get('password2')) passwordMatch = true;
+					if (this.get('password').length > 0) properPassword = true;
 
-					if (properPassword1 && properPassword2 && passwordMatch && properEmail && properFirstName && properLastName) {
-
-						this.set('firstnameError', false);
-						this.set('lastnameError', false);
-						this.set('emailError', false);
-						this.set('password1Error', false);
-						this.set('password2Error', false);
+					if (properPassword && properEmail && properName) {
 						var arr = [];
 						for (var i = 0; i < this.get('selectedCourses').length; i++) {
 							arr.push(this.get('selectedCourses')[i].id);
 						}
-
-						// Get the modal
-						var modal = document.getElementById('modal');
-
-						// Get the button that opens the modal
-						var btn = document.getElementsByClassName("submit");
-
-						// Get the <span> element that closes the modal
-						var span = document.getElementsByClassName("close")[0];
-
-						// When the user clicks on <span> (x), close the modal
-						span.onclick = function () {
-							modal.style.display = "none";
-							window.location.href = '';
-						};
-
-						// When the user clicks anywhere outside of the modal, close it
-						window.onclick = function (event) {
-							if (event.target == modal) {
-								modal.style.display = "none";
-								window.location.href = '';
-							}
-						};
-
 						var user = this.store.createRecord('user', {
-							firstname: this.get('firstname'),
-							lastname: this.get('lastname'),
+							name: this.get('name'),
 							email: this.get('email'),
-							password: this.get('password1'),
+							password: this.get('password'),
 							admin: false,
 							university: this.get('uni').name,
 							courses: arr
@@ -177,14 +114,10 @@ define('studyapp-web/controllers/sign-up', ['exports', 'ember'], function (expor
 								}, 2000);
 							}
 						});
-						modal.style.display = "block";
 					} else {
-						if (!properFirstName) this.set('firstnameError', true);
-						if (!properLastName) this.set('lastnameError', true);
+						if (!properName) this.set('nameError', true);
 						if (!properEmail) this.set('emailError', true);
-						if (!properPassword1) this.set('password1Error', true);
-						if (!properPassword2) this.set('password2Error', true);
-						if (!passwordMatch) this.set('passwordMatchError', true);
+						if (!properPassword) this.set('passwordError', true);
 					}
 				}
 			},
