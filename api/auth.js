@@ -32,3 +32,6 @@ module.exports.checkLogin = function(req, res) {
         console.log("Error finding user! Error: " + err);
     });
 };
+
+
+
