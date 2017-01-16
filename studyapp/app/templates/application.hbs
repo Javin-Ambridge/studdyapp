@@ -15,9 +15,12 @@
 		{{/if}}
 	</div>
 	{{#unless session.isAuthenticated}}
-		<div class="learn-more">Learn More</div>
+		
+		{{#link-to 'learn-more' class="no-underline"}}<div class="learn-more">Learn More</div>{{/link-to}}
 	{{else}}
-		<div class="learn-more dashboard">Dashboard</div>
+		
+		{{#link-to 'learn-more' class="no-underline"}}<div class="learn-more">Learn More</div>{{/link-to}}
+		
 	{{/unless}}
 </div>
 {{outlet}}

@@ -105,6 +105,13 @@
     margin-right: 20px;
     box-shadow: 3px 3px 5px #615D5D;
     cursor: pointer; }
+  .login-buttons.resetpassword {
+    padding: 10px 130px;
+    background-color: #FF4646;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 3px 3px 5px #615D5D;
+    cursor: pointer; }
 
 .forgotPwd {
   padding-top: 10px;

@@ -9,7 +9,7 @@ export default Ember.HTMLBars.template((function() {
           "column": 0
         },
         "end": {
-          "line": 24,
+          "line": 30,
           "column": 6
         }
       },
@@ -20,6 +20,8 @@ export default Ember.HTMLBars.template((function() {
     hasRendered: false,
     buildFragment: function buildFragment(dom) {
       var el0 = dom.createDocumentFragment();
+      var el1 = dom.createTextNode("\n");
+      dom.appendChild(el0, el1);
       var el1 = dom.createElement("div");
       dom.setAttribute(el1,"class","reset-page");
       var el2 = dom.createTextNode("\n	");
@@ -58,11 +60,15 @@ export default Ember.HTMLBars.template((function() {
       dom.appendChild(el2, el3);
       var el3 = dom.createElement("div");
       dom.setAttribute(el3,"class","text-left");
-      var el4 = dom.createTextNode("\n			");
+      var el4 = dom.createTextNode("\n		");
       dom.appendChild(el3, el4);
       var el4 = dom.createComment("");
       dom.appendChild(el3, el4);
-      var el4 = dom.createTextNode(" \n		");
+      var el4 = dom.createTextNode("\n		");
+      dom.appendChild(el3, el4);
+      var el4 = dom.createComment(" {{input type=\"text\" value=NewPassword class=\"inputbox\" maxlength=\"85\" placeholder=\"\"}}  ");
+      dom.appendChild(el3, el4);
+      var el4 = dom.createTextNode("\n		");
       dom.appendChild(el3, el4);
       dom.appendChild(el2, el3);
       var el3 = dom.createTextNode("\n		");
@@ -77,6 +83,10 @@ export default Ember.HTMLBars.template((function() {
       dom.appendChild(el3, el4);
       var el4 = dom.createComment("");
       dom.appendChild(el3, el4);
+      var el4 = dom.createTextNode("\n			");
+      dom.appendChild(el3, el4);
+      var el4 = dom.createComment(" {{input type=\"text\" value=NewPassword2 class=\"inputbox\" maxlength=\"85\" placeholder=\"\"}} ");
+      dom.appendChild(el3, el4);
       var el4 = dom.createTextNode("\n		");
       dom.appendChild(el3, el4);
       dom.appendChild(el2, el3);
@@ -85,6 +95,13 @@ export default Ember.HTMLBars.template((function() {
       var el3 = dom.createElement("br");
       dom.appendChild(el2, el3);
       var el3 = dom.createElement("br");
+      dom.appendChild(el2, el3);
+      var el3 = dom.createTextNode("\n		");
+      dom.appendChild(el2, el3);
+      var el3 = dom.createElement("a");
+      dom.setAttribute(el3,"class","login-buttons resetpassword");
+      var el4 = dom.createTextNode("\n			Reset Password\n		");
+      dom.appendChild(el3, el4);
       dom.appendChild(el2, el3);
       var el3 = dom.createTextNode("\n\n\n	");
       dom.appendChild(el2, el3);
@@ -95,17 +112,20 @@ export default Ember.HTMLBars.template((function() {
       return el0;
     },
     buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-      var element0 = dom.childAt(fragment, [0, 1]);
-      var morphs = new Array(3);
+      var element0 = dom.childAt(fragment, [1, 1]);
+      var element1 = dom.childAt(element0, [18]);
+      var morphs = new Array(4);
       morphs[0] = dom.createMorphAt(dom.childAt(element0, [5]),1,1);
       morphs[1] = dom.createMorphAt(dom.childAt(element0, [9]),1,1);
       morphs[2] = dom.createMorphAt(dom.childAt(element0, [13]),1,1);
+      morphs[3] = dom.createElementMorph(element1);
       return morphs;
     },
     statements: [
-      ["inline","input",[],["type","text","value",["subexpr","@mut",[["get","CurrentPassword",["loc",[null,[8,29],[8,44]]]]],[],[]],"class","inputbox","maxlength","85","placeholder",""],["loc",[null,[8,3],[8,93]]]],
-      ["inline","input",[],["type","text","value",["subexpr","@mut",[["get","NewPassword",["loc",[null,[13,29],[13,40]]]]],[],[]],"class","inputbox","maxlength","85","placeholder",""],["loc",[null,[13,3],[13,89]]]],
-      ["inline","input",[],["type","text","value",["subexpr","@mut",[["get","VerifyPassword",["loc",[null,[18,29],[18,43]]]]],[],[]],"class","inputbox","maxlength","85","placeholder",""],["loc",[null,[18,3],[18,92]]]]
+      ["inline","input",[],["type","text","value",["subexpr","@mut",[["get","CurrentPassword",["loc",[null,[9,29],[9,44]]]]],[],[]],"class","inputbox","maxlength","85","placeholder",""],["loc",[null,[9,3],[9,93]]]],
+      ["inline","input",[],["type","text","placeholder","","value",["subexpr","@mut",[["get","NewPassword",["loc",[null,[14,43],[14,54]]]]],[],[]],"type","password","class","inputbox","maxlength","16"],["loc",[null,[14,2],[14,104]]]],
+      ["inline","input",[],["type","text","placeholder","","value",["subexpr","@mut",[["get","NewPassword2",["loc",[null,[20,44],[20,56]]]]],[],[]],"type","password","class","inputbox","maxlength","16"],["loc",[null,[20,3],[20,106]]]],
+      ["element","action",["ChangePassword"],[],["loc",[null,[24,41],[24,68]]]]
     ],
     locals: [],
     templates: []

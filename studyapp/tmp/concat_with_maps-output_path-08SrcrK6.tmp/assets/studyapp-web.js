@@ -248,7 +248,69 @@ define('studyapp-web/controllers/object', ['exports', 'ember'], function (export
   exports['default'] = _ember['default'].Controller;
 });
 define('studyapp-web/controllers/reset-password', ['exports', 'ember'], function (exports, _ember) {
-	exports['default'] = _ember['default'].Controller.extend({});
+	exports['default'] = _ember['default'].Controller.extend({
+		session: _ember['default'].inject.service("session"),
+		newPasswordValid: true,
+		passwordsMatch: true,
+		oldPasswordValid: true,
+		actions: {
+			ChangePassword: function ChangePassword() {
+				var curPassword = this.get('CurrentPassword');
+				var newPassword1 = this.get('NewPassword');
+				var newPassword2 = this.get('NewPassword2');
+				var canChangePassword = false;
+
+				var emailSession = this.get('session.currentUser'); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				console.log("email is " + emailSession);
+				if (curPassword === null) {
+					console.log("Must enter a current password.");
+				} else if (newPassword1 === null || newPassword1 === "") {
+					console.log("Must enter a new password.");
+				} else if (newPassword2 === null || newPassword2 === "") {
+					console.log("Must enter a valid password entry.");
+				} else if (newPassword1 !== newPassword2) {
+					console.log("Passwords do not match.");
+					this.set('passwordsMatch', false);
+				} else if (!isValidPassword(newPassword1)) {
+					console.log("Password must be between 6 and 16 characters long, and contain only contain letters, numbers, and !@#\$%\^\&*\)\(+=._-");
+					this.set('newPasswordValid', false);
+				} else {
+					canChangePassword = true;
+				}
+				if (canChangePassword === false) {
+					//	failAlert('canChangePassword');
+					console.log("Cannot Change Password");
+					return false;
+				}
+
+				console.log("Passed prelim");
+
+				this.get('store').queryRecord('user', {
+					params: {
+						check: true
+					},
+					filter: {
+						email: emailSession
+					}
+				}).then(function (loginUser) {
+					loginUser.set('password', newPassword1);
+				});
+			}
+		}
+	});
+
+	function isValidPassword(newPassword) {
+		var regExpr1 = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{6,16}$/g;
+		var passwordLength = newPassword.length;
+		if (passwordLength < 6 || passwordLength > 16) {
+			return false;
+		}
+		if (!regExpr1.test(newPassword)) {
+			alert("Password must be between 6 and 16 characters long, and contain only contain letters, numbers, and no special characters");
+			return false;
+		}
+		return true;
+	}
 });
 define('studyapp-web/controllers/sign-up', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].Controller.extend({
@@ -1794,7 +1856,7 @@ define("studyapp-web/templates/reset-password", ["exports"], function (exports) 
             "column": 0
           },
           "end": {
-            "line": 24,
+            "line": 30,
             "column": 6
           }
         },
@@ -1805,6 +1867,8 @@ define("studyapp-web/templates/reset-password", ["exports"], function (exports) 
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "reset-page");
         var el2 = dom.createTextNode("\n	");
@@ -1843,11 +1907,15 @@ define("studyapp-web/templates/reset-password", ["exports"], function (exports) 
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "class", "text-left");
-        var el4 = dom.createTextNode("\n			");
+        var el4 = dom.createTextNode("\n		");
         dom.appendChild(el3, el4);
         var el4 = dom.createComment("");
         dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode(" \n		");
+        var el4 = dom.createTextNode("\n		");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment(" {{input type=\"text\" value=NewPassword class=\"inputbox\" maxlength=\"85\" placeholder=\"\"}}  ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n		");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n		");
@@ -1862,6 +1930,10 @@ define("studyapp-web/templates/reset-password", ["exports"], function (exports) 
         dom.appendChild(el3, el4);
         var el4 = dom.createComment("");
         dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n			");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment(" {{input type=\"text\" value=NewPassword2 class=\"inputbox\" maxlength=\"85\" placeholder=\"\"}} ");
+        dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("\n		");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
@@ -1870,6 +1942,13 @@ define("studyapp-web/templates/reset-password", ["exports"], function (exports) 
         var el3 = dom.createElement("br");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n		");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("a");
+        dom.setAttribute(el3, "class", "login-buttons resetpassword");
+        var el4 = dom.createTextNode("\n			Reset Password\n		");
+        dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n\n\n	");
         dom.appendChild(el2, el3);
@@ -1880,14 +1959,16 @@ define("studyapp-web/templates/reset-password", ["exports"], function (exports) 
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [0, 1]);
-        var morphs = new Array(3);
+        var element0 = dom.childAt(fragment, [1, 1]);
+        var element1 = dom.childAt(element0, [18]);
+        var morphs = new Array(4);
         morphs[0] = dom.createMorphAt(dom.childAt(element0, [5]), 1, 1);
         morphs[1] = dom.createMorphAt(dom.childAt(element0, [9]), 1, 1);
         morphs[2] = dom.createMorphAt(dom.childAt(element0, [13]), 1, 1);
+        morphs[3] = dom.createElementMorph(element1);
         return morphs;
       },
-      statements: [["inline", "input", [], ["type", "text", "value", ["subexpr", "@mut", [["get", "CurrentPassword", ["loc", [null, [8, 29], [8, 44]]]]], [], []], "class", "inputbox", "maxlength", "85", "placeholder", ""], ["loc", [null, [8, 3], [8, 93]]]], ["inline", "input", [], ["type", "text", "value", ["subexpr", "@mut", [["get", "NewPassword", ["loc", [null, [13, 29], [13, 40]]]]], [], []], "class", "inputbox", "maxlength", "85", "placeholder", ""], ["loc", [null, [13, 3], [13, 89]]]], ["inline", "input", [], ["type", "text", "value", ["subexpr", "@mut", [["get", "VerifyPassword", ["loc", [null, [18, 29], [18, 43]]]]], [], []], "class", "inputbox", "maxlength", "85", "placeholder", ""], ["loc", [null, [18, 3], [18, 92]]]]],
+      statements: [["inline", "input", [], ["type", "text", "value", ["subexpr", "@mut", [["get", "CurrentPassword", ["loc", [null, [9, 29], [9, 44]]]]], [], []], "class", "inputbox", "maxlength", "85", "placeholder", ""], ["loc", [null, [9, 3], [9, 93]]]], ["inline", "input", [], ["type", "text", "placeholder", "", "value", ["subexpr", "@mut", [["get", "NewPassword", ["loc", [null, [14, 43], [14, 54]]]]], [], []], "type", "password", "class", "inputbox", "maxlength", "16"], ["loc", [null, [14, 2], [14, 104]]]], ["inline", "input", [], ["type", "text", "placeholder", "", "value", ["subexpr", "@mut", [["get", "NewPassword2", ["loc", [null, [20, 44], [20, 56]]]]], [], []], "type", "password", "class", "inputbox", "maxlength", "16"], ["loc", [null, [20, 3], [20, 106]]]], ["element", "action", ["ChangePassword"], [], ["loc", [null, [24, 41], [24, 68]]]]],
       locals: [],
       templates: []
     };
